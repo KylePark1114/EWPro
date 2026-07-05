@@ -192,6 +192,19 @@ class Component extends DCLogic {
 
   reset(){ this.setState({ company:'', name:'', phone:'', email:'', type:'표준 견적', message:'', status:'idle', errorMsg:'' }); }
 
+  componentDidMount(){
+    try {
+      const q = new URLSearchParams(window.location.search);
+      const patch = {};
+      const t = q.get('type');
+      const valid = ['표준 견적','커스텀 견적','대량 OEM','기타 문의'];
+      if (t && valid.indexOf(t) > -1) patch.type = t;
+      const m = q.get('msg');
+      if (m) patch.message = m;
+      if (Object.keys(patch).length) this.setState(patch);
+    } catch(e){}
+  }
+
   renderVals(){
     const s = this.state;
     const sending = s.status === 'sending';
