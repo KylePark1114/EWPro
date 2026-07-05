@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#2f5d4a"/><text x="50" y="46" font-family="Georgia,serif" font-size="17" fill="#eef0e6" text-anchor="middle" font-weight="600">EW</text><text x="50" y="66" font-family="monospace" font-size="9" fill="#a7c1b1" text-anchor="middle" letter-spacing="1">PRO</text></svg></template>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./config.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background:#f2f0e9; }
+  ::selection { background: #2f5d4a; color: #eef0e6; }
+  .ew-nav a { text-decoration:none; color:inherit; }
+  .ewf { font-family:'Pretendard',sans-serif; font-size:15px; color:#16241c; background:#fff; border:1px solid rgba(22,36,28,0.16); border-radius:10px; padding:14px 15px; width:100%; outline:none; transition:border-color .12s; }
+  .ewf:focus { border-color:#2f5d4a; }
+  .ewf::placeholder { color:#9aa39a; }
+  @media (max-width:960px){
+    [style*="max-width:1100px"]{ padding-left:24px !important; padding-right:24px !important; }
+    [style*="grid-template-columns:0.85fr 1.15fr"]{ grid-template-columns:1fr !important; }
+    [style*="grid-template-columns:1.4fr 1fr 1fr 1fr"]{ grid-template-columns:1fr 1fr !important; }
+    [style*="font-size:60px"]{ font-size:40px !important; }
+    [style*="gap:38px"]{ display:none !important; }
+    [style*="grid-template-columns:1fr 1fr"][style*="gap:14px"]{ grid-template-columns:1fr !important; }
+  }
+  @media (max-width:560px){
+    [style*="grid-template-columns:1.4fr 1fr 1fr 1fr"]{ grid-template-columns:1fr !important; }
+  }
+</style>
+</helmet>
+
+<div style="font-family:'Pretendard',sans-serif; color:#16241c; background:#f2f0e9; width:100%; overflow:hidden;">
+
+  <!-- nav -->
+  <div class="ew-nav" style="position:sticky; top:0; z-index:50; background:rgba(242,240,233,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(22,36,28,0.1);">
+    <div style="max-width:1100px; margin:0 auto; padding:20px 48px; display:flex; align-items:center; justify-content:space-between;">
+      <a href="index.html" style="display:flex; align-items:center; gap:10px; font-family:'Spectral',serif; font-weight:600; font-size:23px; letter-spacing:0.02em;">
+        <span style="width:9px; height:9px; border-radius:2px; background:#2f5d4a; display:inline-block; transform:rotate(45deg);"></span>EW PRO
+      </a>
+      <div style="display:flex; gap:38px; font-size:15px; color:#33463b;">
+        <a href="lineup.html">Lineup</a><a href="quote.html">Quote</a><a href="about.html">About</a><a href="contact.html" style="color:#2f5d4a; font-weight:600;">Contact</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:20px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#7d8a80;">KR / EN</span>
+        <a href="quote.html" style="background:#2f5d4a; color:#f2f0e9; padding:12px 22px; border-radius:8px; font-size:14px; font-weight:600;">Get a Quote →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- header -->
+  <div style="max-width:1100px; margin:0 auto; padding:64px 48px 30px;">
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#5c7061;">Contact</span>
+    <h1 style="font-family:'Spectral',serif; font-weight:300; font-size:60px; line-height:1.02; margin:14px 0 0; letter-spacing:-0.02em;">문의하기 · <span style="font-weight:600; color:#2f5d4a;">상담 신청</span></h1>
+    <p style="font-size:17px; color:#5c655d; max-width:560px; line-height:1.6; margin:18px 0 0;">아래 양식을 남겨주시면 담당자가 영업일 기준 1일 내 회신드립니다. 표준·커스텀 견적, 대량 OEM 발주 모두 상담 가능합니다.</p>
+  </div>
+
+  <!-- body -->
+  <div style="max-width:1100px; margin:0 auto; padding:20px 48px 90px; display:grid; grid-template-columns:0.85fr 1.15fr; gap:48px; align-items:start;">
+
+    <!-- left: direct channels -->
+    <div style="display:flex; flex-direction:column; gap:18px;">
+      <a href="mailto:info@ewpro.kr" style="text-decoration:none; color:inherit; background:#fff; border:1px solid rgba(22,36,28,0.1); border-radius:14px; padding:24px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5c7061; letter-spacing:0.08em;">EMAIL</div>
+        <div style="font-family:'Spectral',serif; font-weight:600; font-size:22px; margin-top:8px; color:#2f5d4a;">info@ewpro.kr</div>
+      </a>
+      <a href="tel:05044085096" style="text-decoration:none; color:inherit; background:#fff; border:1px solid rgba(22,36,28,0.1); border-radius:14px; padding:24px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5c7061; letter-spacing:0.08em;">TEL</div>
+        <div style="font-family:'Spectral',serif; font-weight:600; font-size:22px; margin-top:8px; color:#2f5d4a;">050-4408-5096</div>
+      </a>
+      <div style="background:#2f5d4a; color:#eef0e6; border-radius:14px; padding:24px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#a7c1b1; letter-spacing:0.08em;">ADDRESS</div>
+        <div style="font-size:16px; margin-top:8px; line-height:1.55;">인천광역시 연수구<br>갯벌로 12, A동 5층 11호</div>
+        <div style="border-top:1px solid rgba(238,240,230,0.18); margin-top:18px; padding-top:16px; font-size:13px; color:#c3d3c8; line-height:1.6;">평일 09:00 – 18:00<br>주말·공휴일 휴무</div>
+      </div>
+    </div>
+
+    <!-- right: form -->
+    <div style="background:#fff; border:1px solid rgba(22,36,28,0.1); border-radius:18px; padding:34px;">
+
+      <sc-if value="{{ notDone }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ onSubmit }}" style="display:flex; flex-direction:column; gap:18px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+          <label style="display:flex; flex-direction:column; gap:7px;"><span style="font-size:13px; font-weight:600; color:#414d45;">회사명 / 상호 <span style="color:#c0654f;">*</span></span><input class="ewf" type="text" required="required" placeholder="예: 소래포구 수산" value="{{ company }}" onInput="{{ setCompany }}"></label>
+          <label style="display:flex; flex-direction:column; gap:7px;"><span style="font-size:13px; font-weight:600; color:#414d45;">담당자명 <span style="color:#c0654f;">*</span></span><input class="ewf" type="text" required="required" placeholder="예: 홍길동" value="{{ name }}" onInput="{{ setName }}"></label>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+          <label style="display:flex; flex-direction:column; gap:7px;"><span style="font-size:13px; font-weight:600; color:#414d45;">연락처 <span style="color:#c0654f;">*</span></span><input class="ewf" type="tel" required="required" placeholder="010-0000-0000" value="{{ phone }}" onInput="{{ setPhone }}"></label>
+          <label style="display:flex; flex-direction:column; gap:7px;"><span style="font-size:13px; font-weight:600; color:#414d45;">이메일</span><input class="ewf" type="email" placeholder="you@company.com" value="{{ email }}" onInput="{{ setEmail }}"></label>
+        </div>
+        <label style="display:flex; flex-direction:column; gap:7px;"><span style="font-size:13px; font-weight:600; color:#414d45;">문의 유형</span>
+          <select class="ewf" value="{{ type }}" onChange="{{ setType }}">
+            <option value="표준 견적">표준 라인업 견적 (S/M/L)</option>
+            <option value="커스텀 견적">커스텀 사양 견적</option>
+            <option value="대량 OEM">대량 OEM 발주</option>
+            <option value="기타 문의">기타 문의</option>
+          </select>
+        </label>
+        <label style="display:flex; flex-direction:column; gap:7px;"><span style="font-size:13px; font-weight:600; color:#414d45;">문의 내용 <span style="color:#c0654f;">*</span></span><textarea class="ewf" required="required" rows="5" placeholder="희망 수량·사양·납기 등 구체적으로 적어주시면 빠른 견적이 가능합니다." style="resize:vertical; min-height:120px;" value="{{ message }}" onInput="{{ setMessage }}"></textarea></label>
+
+        <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#fbe4de; border:1px solid #e9a596; color:#a33f27; border-radius:10px; padding:13px 15px; font-size:14px;">{{ errorMsg }}</div>
+        </sc-if>
+
+        <button type="submit" disabled="{{ sending }}" style="{{ submitStyle }}">{{ submitLabel }}</button>
+        <p style="font-size:12px; color:#7d8a80; line-height:1.55; margin:0; text-align:center;">제출 시 개인정보는 상담 목적에 한해 이용되며, 처리 후 파기됩니다.</p>
+      </form>
+      </sc-if>
+
+      <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex; flex-direction:column; align-items:center; text-align:center; padding:40px 20px;">
+        <div style="width:66px; height:66px; border-radius:999px; background:#2f5d4a; color:#eef0e6; display:flex; align-items:center; justify-content:center; font-size:30px;">✓</div>
+        <h2 style="font-family:'Spectral',serif; font-weight:600; font-size:28px; margin:22px 0 10px;">문의가 접수되었습니다</h2>
+        <p style="font-size:15px; color:#5c655d; line-height:1.65; max-width:360px; margin:0;">담당자가 영업일 기준 1일 내 회신드립니다. 급하신 경우 <a href="tel:05044085096" style="color:#2f5d4a; font-weight:600;">050-4408-5096</a>으로 연락 주세요.</p>
+        <button onClick="{{ reset }}" style="margin-top:26px; background:transparent; border:1px solid rgba(22,36,28,0.2); color:#16241c; padding:13px 24px; border-radius:10px; font-size:14px; font-weight:600; cursor:pointer; font-family:inherit;">새 문의 작성</button>
+      </div>
+      </sc-if>
+
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div style="background:#16241c; color:#c3d3c8;">
+    <div style="max-width:1100px; margin:0 auto; padding:70px 48px 48px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px;">
+      <div>
+        <div style="font-family:'Spectral',serif; font-weight:600; font-size:28px; color:#eef0e6;">EW PRO</div>
+        <p style="font-size:14px; line-height:1.6; margin:16px 0 0; max-width:280px;">생분해 가능한 4-in-1 친환경 회 포장 솔루션. 신선함은 지키고, 자연으로 되돌립니다.</p>
+      </div>
+      <div class="ew-nav" style="display:flex; flex-direction:column; gap:12px; font-size:14px;"><span style="color:#7d8a80; font-family:'IBM Plex Mono',monospace; font-size:12px;">PRODUCT</span><a href="lineup.html">Lineup</a><a href="quote.html">Custom Quote</a><a href="about.html">Sustainability</a></div>
+      <div class="ew-nav" style="display:flex; flex-direction:column; gap:12px; font-size:14px;"><span style="color:#7d8a80; font-family:'IBM Plex Mono',monospace; font-size:12px;">COMPANY</span><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;"><span style="color:#7d8a80; font-family:'IBM Plex Mono',monospace; font-size:12px;">CONTACT</span><a href="mailto:info@ewpro.kr" style="color:inherit;text-decoration:none;">info@ewpro.kr</a><a href="tel:05044085096" style="color:inherit;text-decoration:none;">050-4408-5096</a><span>인천광역시 연수구 갯벌로 12, A동 5층 11호</span></div>
+    </div>
+    <div style="max-width:1100px; margin:0 auto; padding:24px 48px; border-top:1px solid rgba(238,240,230,0.12); display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#7d8a80;">
+      <span>© 2026 EW PRO. All rights reserved.</span><span>Privacy · Terms</span>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1100,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    company:'', name:'', phone:'', email:'', type:'표준 견적', message:'',
+    status:'idle', errorMsg:'',   // idle | sending | done | error
+  };
+
+  getClient(){
+    const cfg = (typeof window !== 'undefined' && window.EWPRO_SUPABASE) || null;
+    if (!cfg || !cfg.url || !cfg.anonKey || cfg.url.indexOf('여기에') > -1) return null;
+    if (!window.supabase || !window.supabase.createClient) return null;
+    if (!this._client) this._client = window.supabase.createClient(cfg.url, cfg.anonKey);
+    return this._client;
+  }
+
+  mailtoFallback(){
+    const s = this.state;
+    const subj = '[EW PRO 문의] '+s.type+' · '+s.company;
+    const body = '■ 문의 내용\n\n· 회사명: '+s.company+'\n· 담당자: '+s.name+'\n· 연락처: '+s.phone+'\n· 이메일: '+s.email+'\n· 문의유형: '+s.type+'\n\n'+s.message;
+    window.location.href = 'mailto:info@ewpro.kr?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+  }
+
+  async onSubmit(e){
+    e.preventDefault();
+    if (this.state.status === 'sending') return;
+    this.setState({ status:'sending', errorMsg:'' });
+    const s = this.state;
+    const row = { company:s.company, contact_name:s.name, phone:s.phone, email:s.email, inquiry_type:s.type, message:s.message };
+    const client = this.getClient();
+    if (!client){
+      // DB 미설정 시 이메일로 안전하게 폴백
+      this.mailtoFallback();
+      this.setState({ status:'done' });
+      return;
+    }
+    try {
+      const { error } = await client.from('inquiries').insert(row);
+      if (error) throw error;
+      this.setState({ status:'done' });
+    } catch(err){
+      this.setState({ status:'error', errorMsg:'전송 중 문제가 발생했습니다. 이메일(info@ewpro.kr)로 보내드릴게요.' });
+      setTimeout(()=>this.mailtoFallback(), 900);
+    }
+  }
+
+  reset(){ this.setState({ company:'', name:'', phone:'', email:'', type:'표준 견적', message:'', status:'idle', errorMsg:'' }); }
+
+  renderVals(){
+    const s = this.state;
+    const sending = s.status === 'sending';
+    const submitStyle = 'margin-top:4px; background:'+(sending?'#5c7061':'#2f5d4a')+'; color:#eef0e6; border:none; padding:17px; border-radius:10px; font-size:16px; font-weight:700; cursor:'+(sending?'default':'pointer')+'; font-family:inherit; transition:background .12s;';
+    return {
+      company:s.company, name:s.name, phone:s.phone, email:s.email, type:s.type, message:s.message,
+      setCompany:(e)=>this.setState({company:e.target.value}),
+      setName:(e)=>this.setState({name:e.target.value}),
+      setPhone:(e)=>this.setState({phone:e.target.value}),
+      setEmail:(e)=>this.setState({email:e.target.value}),
+      setType:(e)=>this.setState({type:e.target.value}),
+      setMessage:(e)=>this.setState({message:e.target.value}),
+      onSubmit:(e)=>this.onSubmit(e),
+      reset:()=>this.reset(),
+      notDone: s.status !== 'done',
+      done: s.status === 'done',
+      hasError: s.status === 'error',
+      errorMsg: s.errorMsg,
+      sending,
+      submitStyle,
+      submitLabel: sending ? '전송 중…' : '문의 보내기 →',
+    };
+  }
+}
+</script>
+</body>
+</html>
