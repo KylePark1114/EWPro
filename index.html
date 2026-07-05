@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#2f5d4a"/><text x="50" y="46" font-family="Georgia,serif" font-size="17" fill="#eef0e6" text-anchor="middle" font-weight="600">EW</text><text x="50" y="66" font-family="monospace" font-size="9" fill="#a7c1b1" text-anchor="middle" letter-spacing="1">PRO</text></svg></template>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background:#f2f0e9; }
+  ::selection { background: #2f5d4a; color: #eef0e6; }
+  .ew-nav a { text-decoration:none; color:inherit; }
+  image-slot { width:100% !important; height:100% !important; display:block !important; }
+  @media (max-width:960px){
+    [style*="max-width:1280px"]{ padding-left:24px !important; padding-right:24px !important; }
+    [style*="grid-template-columns:1.02fr 0.98fr"],
+    [style*="grid-template-columns:0.95fr 1.05fr"],
+    [style*="grid-template-columns:0.4fr 1fr"],
+    [style*="repeat(3,1fr)"]{ grid-template-columns:1fr !important; }
+    [style*="grid-template-columns:1.4fr 1fr 1fr 1fr"]{ grid-template-columns:1fr 1fr !important; }
+    [style*="font-size:82px"]{ font-size:44px !important; }
+    [style*="gap:38px"]{ display:none !important; }
+    [style*="justify-content:space-between"][style*="gap:40px"]{ flex-direction:column !important; align-items:flex-start !important; }
+  }
+  @media (max-width:560px){
+    [style*="repeat(4,1fr)"]{ grid-template-columns:1fr 1fr !important; }
+    [style*="grid-template-columns:1.4fr 1fr 1fr 1fr"]{ grid-template-columns:1fr !important; }
+  }
+</style>
+</helmet>
+
+<div style="font-family:'Pretendard',sans-serif; color:#16241c; background:#f2f0e9; width:100%; overflow:hidden;">
+
+  <!-- announcement bar -->
+  <div style="background:#16241c; color:#c3d3c8; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.04em; text-align:center; padding:9px 20px;">생분해 가능 4-IN-1 친환경 회 포장 · 특허 출원 3건 · 실시간 견적 오픈</div>
+
+  <!-- nav -->
+  <div class="ew-nav" style="position:sticky; top:0; z-index:50; background:rgba(242,240,233,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(22,36,28,0.1);">
+    <div style="max-width:1280px; margin:0 auto; padding:20px 48px; display:flex; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:10px; font-family:'Spectral',serif; font-weight:600; font-size:23px; letter-spacing:0.02em;">
+        <span style="width:9px; height:9px; border-radius:2px; background:#2f5d4a; display:inline-block; transform:rotate(45deg);"></span>EW PRO
+      </div>
+      <div style="display:flex; gap:38px; font-size:15px; color:#33463b;">
+        <a href="lineup.html">Lineup</a><a href="quote.html">Quote</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:20px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#7d8a80;">KR / EN</span>
+        <a href="quote.html" style="background:#2f5d4a; color:#f2f0e9; padding:12px 22px; border-radius:8px; font-size:14px; font-weight:600;">Get a Quote →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- hero -->
+  <div style="max-width:1280px; margin:0 auto; padding:80px 48px 70px;">
+    <div style="display:grid; grid-template-columns:1.02fr 0.98fr; gap:56px; align-items:center;">
+      <div>
+        <span style="display:inline-flex; align-items:center; gap:9px; padding:8px 15px; border-radius:8px; background:#e4e7dc; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:#2f5d4a;"><span style="width:6px;height:6px;border-radius:999px;background:#2f5d4a;"></span>4-IN-1 · 생분해 가능 친환경 포장</span>
+        <h1 style="font-family:'Spectral',serif; font-weight:300; font-size:82px; line-height:0.98; margin:26px 0 0; letter-spacing:-0.02em;">신선함은 지키고,<br><span style="font-weight:600; color:#2f5d4a;">자연으로</span> 되돌린다.</h1>
+        <p style="font-size:19px; line-height:1.65; color:#414d45; max-width:480px; margin:30px 0 0;">회 본연의 신선도를 지키는 4-in-1 포장 시스템. 생분해성 친환경 소재로 만들어져, 쓰임을 다하면 다시 자연으로 돌아갑니다.</p>
+        <div style="display:flex; gap:14px; margin-top:38px;">
+          <a href="#quote" style="background:#2f5d4a; color:#f2f0e9; padding:17px 30px; border-radius:10px; font-size:16px; font-weight:600; text-decoration:none;">실시간 견적 받기 →</a>
+          <a href="#lineup" style="border:1px solid rgba(22,36,28,0.22); padding:17px 30px; border-radius:10px; font-size:16px; font-weight:600; text-decoration:none; color:#16241c;">제품 라인업</a>
+        </div>
+      </div>
+      <div style="position:relative; aspect-ratio:1/1; border-radius:18px; overflow:hidden; background:#e4e7dc;">
+        <img src="img/main1.jpg" alt="EW PRO" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <span style="position:absolute; top:18px; right:18px; padding:8px 13px; background:#fff; border-radius:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:#33463b; box-shadow:0 8px 20px -8px rgba(0,0,0,0.15); pointer-events:none;">100% 생분해</span>
+        <span style="position:absolute; bottom:18px; left:18px; padding:8px 13px; background:#fff; border-radius:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:#33463b; box-shadow:0 8px 20px -8px rgba(0,0,0,0.15); pointer-events:none;">생분해성 소재 · 230mm</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- trust / certification strip -->
+  <div style="border-top:1px solid rgba(22,36,28,0.1); border-bottom:1px solid rgba(22,36,28,0.1); background:#f6f4ee;">
+    <div style="max-width:1280px; margin:0 auto; padding:0 48px; display:grid; grid-template-columns:repeat(4,1fr);">
+      <div style="padding:34px 40px 34px 0; border-right:1px solid rgba(22,36,28,0.1);"><div style="font-family:'Spectral',serif; font-weight:600; font-size:40px; color:#2f5d4a;">3건</div><div style="font-size:14px; color:#5c655d; margin-top:4px;">포장 구조 특허 출원</div></div>
+      <div style="padding:34px 40px; border-right:1px solid rgba(22,36,28,0.1);"><div style="font-family:'Spectral',serif; font-weight:600; font-size:40px; color:#2f5d4a;">D+3</div><div style="font-size:14px; color:#5c655d; margin-top:4px;">표준 라인 평균 납기</div></div>
+      <div style="padding:34px 40px; border-right:1px solid rgba(22,36,28,0.1);"><div style="font-family:'Spectral',serif; font-weight:600; font-size:40px; color:#2f5d4a;">100%</div><div style="font-size:14px; color:#5c655d; margin-top:4px;">생분해·재활용 소재</div></div>
+      <div style="padding:34px 0 34px 40px;"><div style="font-family:'Spectral',serif; font-weight:600; font-size:40px; color:#2f5d4a;">S·M·L</div><div style="font-size:14px; color:#5c655d; margin-top:4px;">표준 + 커스텀 사양</div></div>
+    </div>
+  </div>
+
+  <!-- the cycle (dark green eco story) -->
+  <div id="about" style="background:#2f5d4a; color:#eef0e6;">
+    <div style="max-width:1280px; margin:0 auto; padding:90px 48px;">
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:40px; margin-bottom:48px;">
+        <div>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#a7c1b1;">01 — The Cycle</span>
+          <h2 style="font-family:'Spectral',serif; font-weight:300; font-size:54px; margin:14px 0 0; line-height:1.02;">포장의 끝이 <span style="font-weight:600;">오염의 시작</span>이<br>되지 않도록.</h2>
+        </div>
+        <p style="font-size:15px; color:#c3d3c8; max-width:320px; text-align:right; line-height:1.6;">소재 자체가 자연의 일부가 되는 순환형 포장을 지향합니다. 회 카테고리에 최적화된 친환경 설계.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(238,240,230,0.15); border-radius:14px; overflow:hidden;">
+        <div style="background:#2f5d4a; padding:34px;"><div style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#a7c1b1;">STEP 01</div><h3 style="font-family:'Spectral',serif; font-weight:400; font-size:27px; margin:14px 0 10px;">생분해성 소재로 짓다</h3><p style="font-size:14px; color:#c3d3c8; line-height:1.65; margin:0;">생분해성 소재를 기반으로 성형. 석유계 플라스틱 무첨가.</p></div>
+        <div style="background:#2f5d4a; padding:34px;"><div style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#a7c1b1;">STEP 02</div><h3 style="font-family:'Spectral',serif; font-weight:400; font-size:27px; margin:14px 0 10px;">신선하게 지키다</h3><p style="font-size:14px; color:#c3d3c8; line-height:1.65; margin:0;">4개 셀이 온도·수분·향을 독립 관리해 회의 상태를 보존.</p></div>
+        <div style="background:#2f5d4a; padding:34px;"><div style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#a7c1b1;">STEP 03</div><h3 style="font-family:'Spectral',serif; font-weight:400; font-size:27px; margin:14px 0 10px;">자연으로 돌다</h3><p style="font-size:14px; color:#c3d3c8; line-height:1.65; margin:0;">매립 시 자연 분해되거나, 회수 프로그램으로 재사용.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- brand film / video -->
+  <sc-if value="{{ showVideo }}" hint-placeholder-val="{{ true }}">
+  <div style="max-width:1280px; margin:0 auto; padding:90px 48px;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:30px;">
+      <div>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#5c7061;">02 — Brand Film</span>
+        <h2 style="font-family:'Spectral',serif; font-weight:300; font-size:44px; margin:12px 0 0;">움직임으로 보는 <span style="font-weight:600; color:#2f5d4a;">EW PRO.</span></h2>
+      </div>
+      <span style="font-size:14px; color:#5c655d; max-width:300px; text-align:right;">제품 영상·공정 영상을 여기에 넣을 수 있어요. 파일이나 링크를 주세요.</span>
+    </div>
+    <div id="ew-video" style="position:relative; aspect-ratio:16/9; border-radius:18px; overflow:hidden; border:1px solid rgba(22,36,28,0.14); background:#16241c; display:flex; align-items:center; justify-content:center;">
+      <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
+        <iframe src="{{ videoEmbed }}" style="position:absolute; inset:0; width:100%; height:100%; border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
+      </sc-if>
+      <sc-if value="{{ noVideo }}" hint-placeholder-val="{{ true }}">
+        <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,#1a2c22 0 16px,#1e3228 16px 32px); opacity:0.6;"></div>
+        <div style="position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:18px; color:#c3d3c8;">
+          <span style="width:78px; height:78px; border-radius:999px; background:rgba(238,240,230,0.12); border:1px solid rgba(238,240,230,0.3); display:flex; align-items:center; justify-content:center;">
+            <span style="width:0; height:0; border-left:20px solid #eef0e6; border-top:13px solid transparent; border-bottom:13px solid transparent; margin-left:5px;"></span>
+          </span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.06em;">브랜드 필름 · 영상 자리 (16:9)</span>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- lineup -->
+  <div id="lineup" style="background:#f6f4ee; border-top:1px solid rgba(22,36,28,0.1);">
+    <div style="max-width:1280px; margin:0 auto; padding:90px 48px;">
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:38px;">
+        <div>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#5c7061;">03 — Lineup</span>
+          <h2 style="font-family:'Spectral',serif; font-weight:300; font-size:50px; margin:12px 0 0;">표준 라인업, <span style="font-weight:600; color:#2f5d4a;">즉시 견적.</span></h2>
+        </div>
+        <span style="font-size:15px; color:#5c655d; max-width:340px; text-align:right;">모든 사양은 사이트에서 실시간으로 산출됩니다. 커스텀 발주도 3영업일 내 회신.</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:22px;">
+        <div style="background:#fff; border-radius:16px; padding:22px; border:1px solid rgba(22,36,28,0.07);">
+          <div style="aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:#e4e7dc;"><img src="img/S.jpg" alt="EW PRO" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:18px;"><span style="font-family:'Spectral',serif; font-weight:600; font-size:25px;">Size S</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#7d8a80;">180×120mm</span></div>
+          <p style="font-size:14px; color:#5c655d; line-height:1.6; margin:10px 0 16px;">1~2인분 배달 특화. 배달앱 입점 브랜드 표준.</p>
+          <a href="#quote" style="font-size:14px; font-weight:600; color:#2f5d4a; text-decoration:none;">견적 보기 →</a>
+        </div>
+        <div style="background:#16241c; color:#eef0e6; border-radius:16px; padding:22px;">
+          <div style="aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:#1e3228; position:relative;"><img src="img/M.jpg" alt="EW PRO" style="width:100%;height:100%;object-fit:cover;display:block;"><span style="position:absolute; top:12px; left:12px; font-family:'IBM Plex Mono',monospace; font-size:10px; background:#8ba888; color:#16241c; padding:4px 8px; border-radius:5px; pointer-events:none;">BEST</span></div>
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:18px;"><span style="font-family:'Spectral',serif; font-weight:600; font-size:25px;">Size M</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#8ba888;">230×160mm</span></div>
+          <p style="font-size:14px; color:#c3d3c8; line-height:1.6; margin:10px 0 16px;">3~4인분 모둠. 오프라인 판매점 최다 채택.</p>
+          <a href="#quote" style="font-size:14px; font-weight:600; color:#8ba888; text-decoration:none;">견적 보기 →</a>
+        </div>
+        <div style="background:#fff; border-radius:16px; padding:22px; border:1px solid rgba(22,36,28,0.07);">
+          <div style="aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:#e4e7dc;"><img src="img/L.jpg" alt="EW PRO" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:18px;"><span style="font-family:'Spectral',serif; font-weight:600; font-size:25px;">Size L</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#7d8a80;">300×220mm</span></div>
+          <p style="font-size:14px; color:#5c655d; line-height:1.6; margin:10px 0 16px;">대형 모둠·행사용. 프랜차이즈 대량 발주 대응.</p>
+          <a href="#quote" style="font-size:14px; font-weight:600; color:#2f5d4a; text-decoration:none;">견적 보기 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4-in-1 system -->
+  <div style="max-width:1280px; margin:0 auto; padding:90px 48px; display:grid; grid-template-columns:0.95fr 1.05fr; gap:56px; align-items:center;">
+    <div style="aspect-ratio:1/1; border-radius:18px; overflow:hidden; background:#e4e7dc;"><img src="img/main2.jpg" alt="EW PRO" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+    <div>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#5c7061;">04 — System</span>
+      <h2 style="font-family:'Spectral',serif; font-weight:300; font-size:48px; margin:12px 0 22px; line-height:1.04;">네 개의 셀,<br>하나의 <span style="font-weight:600; color:#2f5d4a;">신선함.</span></h2>
+      <p style="font-size:17px; line-height:1.7; color:#414d45; max-width:520px; margin:0 0 28px;">각 셀은 온도·수분·향을 독립적으로 관리합니다. 회는 회대로, 소스는 소스대로 — 섞이지 않고 도착하는 순간까지 본연의 상태를 유지합니다.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(22,36,28,0.12); border-radius:12px; overflow:hidden;">
+        <div style="background:#f6f4ee; padding:20px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#5c7061;">CELL 01</span><div style="font-family:'Spectral',serif; font-weight:600; font-size:22px; margin-top:4px;">사시미</div></div>
+        <div style="background:#f6f4ee; padding:20px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#5c7061;">CELL 02</span><div style="font-family:'Spectral',serif; font-weight:600; font-size:22px; margin-top:4px;">부재료</div></div>
+        <div style="background:#f6f4ee; padding:20px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#5c7061;">CELL 03</span><div style="font-family:'Spectral',serif; font-weight:600; font-size:22px; margin-top:4px;">소스</div></div>
+        <div style="background:#f6f4ee; padding:20px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#5c7061;">CELL 04</span><div style="font-family:'Spectral',serif; font-weight:600; font-size:22px; margin-top:4px;">마무리</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- testimonial -->
+  <sc-if value="{{ showTestimonial }}" hint-placeholder-val="{{ true }}">
+  <div style="background:#e4e7dc;">
+    <div style="max-width:1280px; margin:0 auto; padding:80px 48px; display:grid; grid-template-columns:0.4fr 1fr; gap:48px; align-items:center;">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div style="width:64px; height:64px; border-radius:999px; overflow:hidden; background:#d6dccb;"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="ew-client" shape="circle" placeholder="로고" style="width:100%;height:100%;display:block;" hint-size="100%,100%"></x-import></div>
+        <div><div style="font-weight:600; font-size:15px;">노량진 수산 A사</div><div style="font-size:13px; color:#5c655d;">오프라인 판매점 · 구매담당</div></div>
+      </div>
+      <blockquote style="margin:0; font-family:'Spectral',serif; font-weight:300; font-size:30px; line-height:1.4; color:#16241c;">“소스 누수 클레임이 사라졌고, 친환경 포장이라 단골 반응도 좋아졌습니다. 견적을 화면에서 바로 확인할 수 있어 발주가 빨라졌어요.”</blockquote>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- quote CTA -->
+  <div id="quote" style="max-width:1280px; margin:0 auto; padding:90px 48px;">
+    <div style="padding:70px 56px; border-radius:22px; background:#2f5d4a; color:#eef0e6; display:flex; align-items:center; justify-content:space-between; gap:40px;">
+      <div>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#a7c1b1;">05 — Quote</span>
+        <h2 style="font-family:'Spectral',serif; font-weight:300; font-size:50px; margin:12px 0 14px; line-height:1.02;">사양만 입력하면,<br><span style="font-weight:600;">견적은 즉시.</span></h2>
+        <p style="font-size:16px; color:#c3d3c8; max-width:460px; margin:0;">수량·사양·납기를 입력하면 화면에서 바로 단가가 산출됩니다. 커스텀 OEM은 담당자가 3영업일 내 회신드립니다.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px; flex-shrink:0;">
+        <a href="#quote" style="background:#eef0e6; color:#16241c; padding:18px 34px; border-radius:10px; font-size:16px; font-weight:700; text-align:center; text-decoration:none;">실시간 견적 산출 →</a>
+        <a href="contact.html" style="border:1px solid rgba(238,240,230,0.3); color:#eef0e6; padding:18px 34px; border-radius:10px; font-size:16px; font-weight:600; text-align:center; text-decoration:none;">상담 문의</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div id="contact" style="background:#16241c; color:#c3d3c8;">
+    <div style="max-width:1280px; margin:0 auto; padding:70px 48px 48px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px;">
+      <div>
+        <div style="font-family:'Spectral',serif; font-weight:600; font-size:28px; color:#eef0e6;">EW PRO</div>
+        <p style="font-size:14px; line-height:1.6; margin:16px 0 0; max-width:280px;">생분해 가능한 4-in-1 친환경 회 포장 솔루션. 신선함은 지키고, 자연으로 되돌립니다.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;"><span style="color:#7d8a80; font-family:'IBM Plex Mono',monospace; font-size:12px;">PRODUCT</span><span>Lineup</span><span>Custom Quote</span><span>Sustainability</span></div>
+      <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;"><span style="color:#7d8a80; font-family:'IBM Plex Mono',monospace; font-size:12px;">COMPANY</span><span>About</span><span>Certifications</span><span>News</span></div>
+      <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;"><span style="color:#7d8a80; font-family:'IBM Plex Mono',monospace; font-size:12px;">CONTACT</span><a href="mailto:info@ewpro.kr" style="color:inherit;text-decoration:none;">info@ewpro.kr</a><a href="tel:05044085096" style="color:inherit;text-decoration:none;">050-4408-5096</a><span>인천광역시 연수구 갯벌로 12, A동 5층 11호</span></div>
+    </div>
+    <div style="max-width:1280px; margin:0 auto; padding:24px 48px; border-top:1px solid rgba(238,240,230,0.12); display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#7d8a80;">
+      <span>© 2026 EW PRO. All rights reserved.</span><span>Privacy · Terms</span>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;videoUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;브랜드 필름&quot;},&quot;showVideo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;섹션 표시&quot;},&quot;showTestimonial&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;섹션 표시&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      showVideo: this.props.showVideo ?? true,
+      showTestimonial: this.props.showTestimonial ?? true,
+      ...this.videoVals(),
+    };
+  }
+
+  // 유튜브/비메오/MP4 링크를 임베드 주소로 변환. 빈 값이면 플레이스홀더 유지.
+  videoVals() {
+    const raw = (this.props.videoUrl ?? '').trim();
+    if (!raw) return { hasVideo: false, noVideo: true, videoEmbed: '' };
+    let embed = raw;
+    let m;
+    if ((m = raw.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/))) {
+      embed = 'https://www.youtube.com/embed/' + m[1];
+    } else if ((m = raw.match(/vimeo\.com\/(?:video\/)?(\d+)/))) {
+      embed = 'https://player.vimeo.com/video/' + m[1];
+    }
+    return { hasVideo: true, noVideo: false, videoEmbed: embed };
+  }
+}
+</script>
+</body>
+</html>

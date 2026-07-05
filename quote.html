@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#2f5d4a"/><text x="50" y="46" font-family="Georgia,serif" font-size="17" fill="#eef0e6" text-anchor="middle" font-weight="600">EW</text><text x="50" y="66" font-family="monospace" font-size="9" fill="#a7c1b1" text-anchor="middle" letter-spacing="1">PRO</text></svg></template>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background:#f2f0e9; }
+  ::selection { background: #2f5d4a; color: #eef0e6; }
+  .ew-nav a { text-decoration:none; color:inherit; }
+  input[type=range]{ -webkit-appearance:none; appearance:none; height:4px; border-radius:999px; background:#c9cfbe; outline:none; }
+  input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; width:22px; height:22px; border-radius:999px; background:#2f5d4a; cursor:pointer; border:3px solid #fff; box-shadow:0 2px 6px rgba(0,0,0,0.2); }
+  @keyframes ewpulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+  @media (max-width:960px){
+    .ewpage .wrap{ padding-left:24px !important; padding-right:24px !important; }
+    .ewpage .calcgrid{ grid-template-columns:1fr !important; }
+    .ewpage .sum{ position:static !important; }
+    .ewpage .hzero{ font-size:44px !important; }
+    .ewpage .hrow{ flex-direction:column !important; align-items:flex-start !important; gap:16px !important; }
+    .ewpage .navlinks{ display:none !important; }
+    .ewpage .foot{ grid-template-columns:1fr 1fr !important; }
+  }
+  @media (max-width:560px){
+    .ewpage .col3{ grid-template-columns:1fr !important; }
+    .ewpage .col2{ grid-template-columns:1fr !important; }
+    .ewpage .foot{ grid-template-columns:1fr !important; }
+  }
+</style>
+</helmet>
+
+<div class="ewpage" style="font-family:'Pretendard',sans-serif; color:#16241c; background:#f2f0e9; width:100%; overflow:hidden;">
+
+  <!-- nav -->
+  <div class="ew-nav" style="position:sticky; top:0; z-index:50; background:rgba(242,240,233,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(22,36,28,0.1);">
+    <div class="wrap" style="max-width:1280px; margin:0 auto; padding:20px 48px; display:flex; align-items:center; justify-content:space-between;">
+      <a href="index.html" style="display:flex; align-items:center; gap:10px; font-family:'Spectral',serif; font-weight:600; font-size:23px; letter-spacing:0.02em;">
+        <span style="width:9px; height:9px; border-radius:2px; background:#2f5d4a; display:inline-block; transform:rotate(45deg);"></span>EW PRO
+      </a>
+      <div class="navlinks" style="display:flex; gap:38px; font-size:15px; color:#33463b;">
+        <a href="lineup.html">Lineup</a><a href="quote.html" style="color:#2f5d4a; font-weight:600;">Quote</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:20px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#7d8a80;">KR / EN</span>
+        <a href="quote.html" style="background:#2f5d4a; color:#f2f0e9; padding:12px 22px; border-radius:8px; font-size:14px; font-weight:600;">Get a Quote →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- header -->
+  <div class="wrap" style="max-width:1280px; margin:0 auto; padding:64px 48px 30px;">
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#5c7061;">Quote</span>
+    <div class="hrow" style="display:flex; align-items:flex-end; justify-content:space-between; gap:40px; margin-top:14px;">
+      <h1 class="hzero" style="font-family:'Spectral',serif; font-weight:300; font-size:60px; line-height:1.0; margin:0; letter-spacing:-0.02em;">실시간 <span style="font-weight:600; color:#2f5d4a;">견적 산출</span></h1>
+      <p style="font-size:16px; color:#5c655d; max-width:400px; line-height:1.6; margin:0;">사양·수량을 입력하면 예상가가 즉시 계산됩니다. 표준 라인업은 바로, 커스텀은 금형비까지 포함해 산출됩니다.</p>
+    </div>
+  </div>
+
+  <!-- tabs -->
+  <div class="wrap" style="max-width:1280px; margin:0 auto; padding:0 48px 24px;">
+    <div style="display:inline-flex; gap:6px; background:#e4e7dc; padding:6px; border-radius:12px;">
+      <button onClick="{{ selectStd }}" style="{{ tabStdStyle }}">표준 라인업</button>
+      <button onClick="{{ selectCus }}" style="{{ tabCusStyle }}">커스텀 사양</button>
+    </div>
+  </div>
+
+  <!-- calculator -->
+  <div class="wrap calcgrid" style="max-width:1280px; margin:0 auto; padding:0 48px 90px; display:grid; grid-template-columns:1.35fr 0.85fr; gap:32px; align-items:start;">
+
+    <!-- ============ CONTROLS ============ -->
+    <div style="display:flex; flex-direction:column; gap:22px;">
+
+      <!-- STANDARD controls -->
+      <sc-if value="{{ isStd }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex; flex-direction:column; gap:22px;">
+        <div style="background:#fff; border:1px solid rgba(22,36,28,0.08); border-radius:16px; padding:28px;">
+          <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:18px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#2f5d4a;">01</span><h3 style="font-family:'Spectral',serif; font-weight:600; font-size:22px; margin:0;">사이즈</h3></div>
+          <div class="col3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px;">
+            <sc-for list="{{ sizes }}" as="z" hint-placeholder-count="3">
+              <button onClick="{{ z.select }}" style="{{ z.style }}">
+                <div style="display:flex; align-items:baseline; justify-content:space-between;"><span style="font-family:'Spectral',serif; font-weight:600; font-size:20px;">{{ z.name }}</span><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; opacity:0.7;">{{ z.dims }}</span></div>
+                <div style="font-size:12px; opacity:0.75; margin-top:6px; text-align:left;">깊이 {{ z.depth }} · 4칸</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:13px; margin-top:12px; text-align:left;">₩{{ z.baseLabel }} <span style="opacity:0.6;">/EA</span></div>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background:#fff; border:1px solid rgba(22,36,28,0.08); border-radius:16px; padding:28px;">
+          <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:18px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#2f5d4a;">02</span><h3 style="font-family:'Spectral',serif; font-weight:600; font-size:22px; margin:0;">발주 수량</h3></div>
+          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px;">
+            <span style="font-family:'Spectral',serif; font-weight:600; font-size:38px; color:#2f5d4a;">{{ stdQtyLabel }}<span style="font-size:17px; color:#5c655d; font-family:'Pretendard';"> EA</span></span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; padding:6px 12px; border-radius:999px; background:#e4e7dc; color:#2f5d4a;">할인 {{ stdDiscLabel }}%</span>
+          </div>
+          <input type="range" min="1000" max="200000" step="1000" value="{{ stdQty }}" onInput="{{ onStdQty }}" style="width:100%;">
+          <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:11px; color:#7d8a80; margin-top:8px;"><span>MOQ 1,000</span><span>최대 200,000</span></div>
+        </div>
+
+        <div style="background:#fff; border:1px solid rgba(22,36,28,0.08); border-radius:16px; padding:28px;">
+          <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:18px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#2f5d4a;">03</span><h3 style="font-family:'Spectral',serif; font-weight:600; font-size:22px; margin:0;">인쇄 옵션</h3></div>
+          <div class="col3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px;">
+            <sc-for list="{{ prints }}" as="p" hint-placeholder-count="3">
+              <button onClick="{{ p.select }}" style="{{ p.style }}">
+                <div style="font-weight:600; font-size:15px; text-align:left;">{{ p.name }}</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:13px; margin-top:10px; text-align:left; opacity:0.8;">{{ p.addLabel }}</div>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- CUSTOM controls -->
+      <sc-if value="{{ isCus }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex; flex-direction:column; gap:22px;">
+        <div style="background:#fff; border:1px solid rgba(22,36,28,0.08); border-radius:16px; padding:28px;">
+          <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:20px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#2f5d4a;">01</span><h3 style="font-family:'Spectral',serif; font-weight:600; font-size:22px; margin:0;">외형 사이즈</h3></div>
+          <div style="display:flex; flex-direction:column; gap:22px;">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;"><span style="font-size:14px; color:#5c655d;">가로 (W)</span><span style="font-family:'Spectral',serif; font-weight:600; font-size:24px; color:#2f5d4a;">{{ cusW }}<span style="font-size:13px; color:#7d8a80; font-family:'IBM Plex Mono';"> mm</span></span></div>
+              <input type="range" min="100" max="400" step="5" value="{{ cusW }}" onInput="{{ onW }}" style="width:100%;">
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;"><span style="font-size:14px; color:#5c655d;">세로 (D)</span><span style="font-family:'Spectral',serif; font-weight:600; font-size:24px; color:#2f5d4a;">{{ cusD }}<span style="font-size:13px; color:#7d8a80; font-family:'IBM Plex Mono';"> mm</span></span></div>
+              <input type="range" min="100" max="400" step="5" value="{{ cusD }}" onInput="{{ onD }}" style="width:100%;">
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;"><span style="font-size:14px; color:#5c655d;">높이 (H)</span><span style="font-family:'Spectral',serif; font-weight:600; font-size:24px; color:#2f5d4a;">{{ cusH }}<span style="font-size:13px; color:#7d8a80; font-family:'IBM Plex Mono';"> mm</span></span></div>
+              <input type="range" min="20" max="80" step="2" value="{{ cusH }}" onInput="{{ onH }}" style="width:100%;">
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#fff; border:1px solid rgba(22,36,28,0.08); border-radius:16px; padding:28px;">
+          <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:18px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#2f5d4a;">02</span><h3 style="font-family:'Spectral',serif; font-weight:600; font-size:22px; margin:0;">트레이 구성</h3></div>
+          <div class="col2" style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
+            <sc-for list="{{ trays }}" as="t" hint-placeholder-count="4">
+              <button onClick="{{ t.select }}" style="{{ t.style }}">
+                <div style="font-weight:600; font-size:15px;">{{ t.label }}</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; margin-top:8px; opacity:0.75;">{{ t.cells }}칸</div>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background:#fff; border:1px solid rgba(22,36,28,0.08); border-radius:16px; padding:28px;">
+          <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:18px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#2f5d4a;">03</span><h3 style="font-family:'Spectral',serif; font-weight:600; font-size:22px; margin:0;">소재</h3></div>
+          <div class="col2" style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+            <sc-for list="{{ mats }}" as="mt" hint-placeholder-count="2">
+              <button onClick="{{ mt.select }}" style="{{ mt.style }}">
+                <div style="display:flex; align-items:baseline; justify-content:space-between;"><span style="font-weight:600; font-size:16px;">{{ mt.name }}</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; opacity:0.75;">{{ mt.mult }}</span></div>
+                <div style="font-size:13px; opacity:0.75; margin-top:8px; text-align:left;">{{ mt.desc }}</div>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background:#fff; border:1px solid rgba(22,36,28,0.08); border-radius:16px; padding:28px;">
+          <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:18px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#2f5d4a;">04</span><h3 style="font-family:'Spectral',serif; font-weight:600; font-size:22px; margin:0;">발주 수량</h3></div>
+          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px;">
+            <span style="font-family:'Spectral',serif; font-weight:600; font-size:38px; color:#2f5d4a;">{{ cusQtyLabel }}<span style="font-size:17px; color:#5c655d; font-family:'Pretendard';"> EA</span></span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; padding:6px 12px; border-radius:999px; background:#e4e7dc; color:#2f5d4a;">할인 {{ cusDiscLabel }}%</span>
+          </div>
+          <input type="range" min="1000" max="200000" step="1000" value="{{ cusQty }}" onInput="{{ onCusQty }}" style="width:100%;">
+          <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:11px; color:#7d8a80; margin-top:8px;"><span>MOQ 1,000</span><span>최대 200,000</span></div>
+        </div>
+      </div>
+      </sc-if>
+
+    </div>
+
+    <!-- ============ SUMMARY ============ -->
+    <div class="sum" style="position:sticky; top:100px; background:#16241c; color:#eef0e6; border-radius:18px; padding:32px; display:flex; flex-direction:column; gap:18px;">
+      <div style="display:flex; align-items:center; justify-content:space-between;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:#8ba888;">Estimate</div>
+        <div style="display:flex; align-items:center; gap:7px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#8ba888;"><span style="width:8px; height:8px; border-radius:999px; background:#8ba888; display:inline-block; animation:ewpulse 1.4s infinite;"></span>LIVE</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:11px; font-size:14px;">
+        <div style="display:flex; justify-content:space-between; gap:12px;"><span style="color:#a7c1b1;">{{ sumLine1Label }}</span><span style="text-align:right;">{{ sumLine1 }}</span></div>
+        <sc-if value="{{ isCus }}" hint-placeholder-val="{{ false }}"><div style="display:flex; justify-content:space-between; gap:12px;"><span style="color:#a7c1b1;">트레이 · 소재</span><span style="text-align:right;">{{ sumTray }}</span></div></sc-if>
+        <div style="display:flex; justify-content:space-between;"><span style="color:#a7c1b1;">발주 수량</span><span style="font-family:'IBM Plex Mono',monospace;">{{ sumQty }} EA</span></div>
+        <div style="display:flex; justify-content:space-between;"><span style="color:#a7c1b1;">기본 단가</span><span style="font-family:'IBM Plex Mono',monospace;"><span style="color:#ee8e7e;">₩</span>{{ baseLabel }}</span></div>
+        <div style="display:flex; justify-content:space-between;"><span style="color:#a7c1b1;">수량 할인</span><span style="font-family:'IBM Plex Mono',monospace; color:#8ba888;">-{{ discLabel }}%</span></div>
+        <sc-if value="{{ isStd }}" hint-placeholder-val="{{ true }}"><div style="display:flex; justify-content:space-between;"><span style="color:#a7c1b1;">인쇄 가산</span><span style="font-family:'IBM Plex Mono',monospace;">+{{ printLabel }}%</span></div></sc-if>
+        <div style="display:flex; justify-content:space-between;"><span style="color:#a7c1b1;">적용 단가</span><span style="font-family:'IBM Plex Mono',monospace;"><span style="color:#ee8e7e;">₩</span>{{ unitLabel }} /EA</span></div>
+        <sc-if value="{{ isCus }}" hint-placeholder-val="{{ false }}"><div style="display:flex; justify-content:space-between; padding-top:11px; border-top:1px dashed rgba(238,240,230,0.2);"><span style="color:#a7c1b1;">금형비 <span style="font-size:11px; color:#ee8e7e;">1회성</span></span><span style="font-family:'IBM Plex Mono',monospace;"><span style="color:#ee8e7e;">₩</span>{{ moldLabel }}</span></div></sc-if>
+      </div>
+      <div style="border-top:1px solid rgba(238,240,230,0.15); padding-top:18px;">
+        <div style="font-size:13px; color:#a7c1b1; margin-bottom:6px;">예상 총액 (VAT 별도)</div>
+        <div style="font-family:'Spectral',serif; font-weight:600; font-size:42px; line-height:1;"><span style="color:#ee8e7e;">₩</span>{{ totalLabel }}</div>
+      </div>
+      <a href="{{ mailtoHref }}" style="background:#8ba888; color:#16241c; padding:16px; border-radius:10px; font-size:15px; font-weight:700; text-align:center; text-decoration:none;">{{ ctaLabel }} →</a>
+      <p style="font-size:12px; color:#7d8a80; line-height:1.55; margin:0;">{{ noteLabel }}</p>
+    </div>
+
+  </div>
+
+  <!-- footer -->
+  <div style="background:#16241c; color:#c3d3c8;">
+    <div class="wrap foot" style="max-width:1280px; margin:0 auto; padding:70px 48px 48px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px;">
+      <div>
+        <div style="font-family:'Spectral',serif; font-weight:600; font-size:28px; color:#eef0e6;">EW PRO</div>
+        <p style="font-size:14px; line-height:1.6; margin:16px 0 0; max-width:280px;">생분해 가능한 4-in-1 친환경 회 포장 솔루션. 신선함은 지키고, 자연으로 되돌립니다.</p>
+      </div>
+      <div class="ew-nav" style="display:flex; flex-direction:column; gap:12px; font-size:14px;"><span style="color:#7d8a80; font-family:'IBM Plex Mono',monospace; font-size:12px;">PRODUCT</span><a href="lineup.html">Lineup</a><a href="quote.html">Custom Quote</a><a href="about.html">Sustainability</a></div>
+      <div class="ew-nav" style="display:flex; flex-direction:column; gap:12px; font-size:14px;"><span style="color:#7d8a80; font-family:'IBM Plex Mono',monospace; font-size:12px;">COMPANY</span><a href="about.html">About</a><span>Certifications</span><span>News</span></div>
+      <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;"><span style="color:#7d8a80; font-family:'IBM Plex Mono',monospace; font-size:12px;">CONTACT</span><a href="mailto:info@ewpro.kr" style="color:inherit;text-decoration:none;">info@ewpro.kr</a><a href="tel:05044085096" style="color:inherit;text-decoration:none;">050-4408-5096</a><span>인천광역시 연수구 갯벌로 12, A동 5층 11호</span></div>
+    </div>
+    <div class="wrap" style="max-width:1280px; margin:0 auto; padding:24px 48px; border-top:1px solid rgba(238,240,230,0.12); display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#7d8a80;">
+      <span>© 2026 EW PRO. All rights reserved.</span><span>Privacy · Terms</span>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:1200}}">
+class Component extends DCLogic {
+  state = {
+    tab: 'std',
+    size: 'M', print: 'none', stdQty: 10000,
+    W: 240, D: 200, H: 38, tray: '2x2', mat: 'pp', cusQty: 20000,
+  };
+
+  SIZES = {
+    S: { name:'Small',  dims:'180×140', depth:'28mm', base:1250 },
+    M: { name:'Medium', dims:'230×180', depth:'35mm', base:1400 },
+    L: { name:'Large',  dims:'280×220', depth:'42mm', base:1600 },
+  };
+  PRINTS = {
+    none: { name:'무인쇄',   add:0,  addLabel:'기본가' },
+    one:  { name:'1도 인쇄', add:8,  addLabel:'+8%' },
+    full: { name:'풀컬러',   add:18, addLabel:'+18%' },
+  };
+  TRAYS = {
+    '1x2': { label:'1×2', cells:2 },
+    '1x3': { label:'1×3', cells:3 },
+    '2x2': { label:'2×2', cells:4 },
+    '2x3': { label:'2×3', cells:6 },
+  };
+  MATS = {
+    pp:  { name:'일반 PP',    mult:'×1.0',  m:1.0,  desc:'폴리프로필렌 · 가격 경쟁력' },
+    pla: { name:'생분해 PLA', mult:'×1.25', m:1.25, desc:'친환경 · 산업 퇴비화 가능' },
+  };
+
+  fmt(n){ return Math.round(n).toLocaleString('ko-KR'); }
+  discount(q){ if(q<=1000)return 0; if(q<=3000)return 2; if(q<=5000)return 3; if(q<=10000)return 4; if(q<=30000)return 5; if(q<=100000)return 6; return 7; }
+
+  btnStyles(active){
+    const b='cursor:pointer; text-align:left; border-radius:12px; padding:16px; font-family:inherit; transition:all .12s; width:100%;';
+    return active ? b+' background:#2f5d4a; color:#eef0e6; border:1px solid #2f5d4a;'
+                  : b+' background:#f6f4ee; color:#16241c; border:1px solid rgba(22,36,28,0.12);';
+  }
+
+  computeStd(){
+    const z=this.SIZES[this.state.size], p=this.PRINTS[this.state.print], q=this.state.stdQty;
+    const disc=this.discount(q);
+    const unit=Math.round(z.base*(1-disc/100)*(1+p.add/100));
+    const total=unit*q;
+    return { z,p,q,disc,unit,total };
+  }
+  computeCus(){
+    const s=this.state, tr=this.TRAYS[s.tray], mt=this.MATS[s.mat], q=s.cusQty;
+    const cells=tr.cells;
+    const vol=s.W*s.D*s.H;
+    const cellW=1+(cells-2)*0.04;
+    let base=(vol/1000)*0.32*cellW*mt.m;
+    base=Math.max(350, base); base=Math.round(base);
+    const disc=this.discount(q);
+    const unit=Math.round(base*(1-disc/100));
+    const area=(s.W*s.D)/1000;
+    let mold=4000000+area*8000+cells*600000;
+    if(s.mat==='pla') mold*=1.15;
+    mold=Math.round(mold/100000)*100000;
+    const product=unit*q, total=product+mold;
+    return { tr,mt,q,cells,disc,base,unit,mold,total };
+  }
+
+  clamp(v,lo,hi){ return Math.min(hi,Math.max(lo,v)); }
+
+  renderVals(){
+    const s=this.state, isStd=s.tab==='std', isCus=s.tab==='cus';
+    const tabB='cursor:pointer; border:none; border-radius:8px; padding:11px 22px; font-family:inherit; font-size:15px; font-weight:600; transition:all .12s;';
+    const tabOn=tabB+' background:#2f5d4a; color:#eef0e6;';
+    const tabOff=tabB+' background:transparent; color:#5c655d;';
+
+    const sizes=Object.keys(this.SIZES).map(k=>{const z=this.SIZES[k];return{ name:z.name, dims:z.dims, depth:z.depth, baseLabel:this.fmt(z.base), style:this.btnStyles(s.size===k), select:()=>this.setState({size:k}) };});
+    const prints=Object.keys(this.PRINTS).map(k=>{const p=this.PRINTS[k];return{ name:p.name, addLabel:p.addLabel, style:this.btnStyles(s.print===k), select:()=>this.setState({print:k}) };});
+    const trays=Object.keys(this.TRAYS).map(k=>{const t=this.TRAYS[k];return{ label:t.label, cells:t.cells, style:this.btnStyles(s.tray===k), select:()=>this.setState({tray:k}) };});
+    const mats=Object.keys(this.MATS).map(k=>{const m=this.MATS[k];return{ name:m.name, mult:m.mult, desc:m.desc, style:this.btnStyles(s.mat===k), select:()=>this.setState({mat:k}) };});
+
+    const std=this.computeStd(), cus=this.computeCus();
+
+    // active-tab summary values
+    let baseLabel, discLabel, unitLabel, totalLabel, printLabel, moldLabel,
+        sumLine1Label, sumLine1, sumTray, sumQty, ctaLabel, noteLabel, mailtoHref;
+
+    if(isStd){
+      baseLabel=this.fmt(std.z.base); discLabel=std.disc; printLabel=std.p.add;
+      unitLabel=this.fmt(std.unit); totalLabel=this.fmt(std.total);
+      sumLine1Label='제품'; sumLine1=std.z.name+' ('+std.z.dims+')';
+      sumQty=std.q.toLocaleString('ko-KR'); ctaLabel='견적 요청서 보내기';
+      noteLabel='표시 금액은 자동 산출 예상가입니다. 최종 견적은 도안·물류 조건 확인 후 영업 담당이 회신드립니다.';
+      const subj='[EW PRO 견적 문의] '+std.z.name+' · '+std.q.toLocaleString('ko-KR')+'EA · ₩ '+this.fmt(std.total);
+      const body='안녕하세요, EW PRO 견적을 요청드립니다.\n\n────────────────────────\n■ 표준 라인업 견적\n────────────────────────\n· 제품      : '+std.z.name+' ('+std.z.dims+')\n· 수량      : '+std.q.toLocaleString('ko-KR')+' EA\n· 기본 단가 : ₩ '+this.fmt(std.z.base)+'\n· 수량 할인 : -'+std.disc+'%\n· 인쇄 옵션 : '+std.p.name+'\n· 적용 단가 : ₩ '+this.fmt(std.unit)+' / EA\n\n· 예상 총액 : ₩ '+this.fmt(std.total)+' (VAT 별도)\n\n────────────────────────\n■ 문의자 정보 (작성 부탁드립니다)\n────────────────────────\n· 회사명     :\n· 담당자     :\n· 연락처     :\n· 배송지     :\n· 희망 납기  :\n· 추가 요청  :\n\n────────────────────────\n감사합니다.';
+      mailtoHref='mailto:info@ewpro.kr?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+    } else {
+      baseLabel=this.fmt(cus.base); discLabel=cus.disc; printLabel=0;
+      unitLabel=this.fmt(cus.unit); totalLabel=this.fmt(cus.total); moldLabel=this.fmt(cus.mold);
+      sumLine1Label='사이즈'; sumLine1=s.W+'×'+s.D+'×'+s.H+'mm';
+      sumTray=cus.tr.label+' ('+cus.cells+'칸) · '+cus.mt.name;
+      sumQty=cus.q.toLocaleString('ko-KR'); ctaLabel='샘플 + 견적 요청 보내기';
+      noteLabel='금형비는 최초 1회 부과되며, 재발주 시 면제됩니다. MOQ 1,000 EA. 정확한 견적은 도면 검토 후 확정됩니다.';
+      const subj='[EW PRO 커스텀 견적] '+s.W+'×'+s.D+'×'+s.H+' · '+cus.cells+'칸 · '+cus.mt.name+' · ₩ '+this.fmt(cus.total);
+      const body='안녕하세요, EW PRO 커스텀 견적을 요청드립니다.\n\n────────────────────────\n■ 커스텀 사양 견적\n────────────────────────\n· 사이즈    : '+s.W+' × '+s.D+' × '+s.H+' mm\n· 트레이    : '+cus.tr.label+' ('+cus.cells+'칸)\n· 소재      : '+cus.mt.name+'\n· 수량      : '+cus.q.toLocaleString('ko-KR')+' EA\n· 기본 단가 : ₩ '+this.fmt(cus.base)+'\n· 수량 할인 : -'+cus.disc+'%\n· 적용 단가 : ₩ '+this.fmt(cus.unit)+' / EA\n· 금형비    : ₩ '+this.fmt(cus.mold)+' (1회성)\n\n· 예상 총액 : ₩ '+this.fmt(cus.total)+' (VAT 별도)\n\n────────────────────────\n■ 문의자 정보 (작성 부탁드립니다)\n────────────────────────\n· 회사명     :\n· 담당자     :\n· 연락처     :\n· 배송지     :\n· 희망 납기  :\n· 추가 요청  :\n\n────────────────────────\n감사합니다.';
+      mailtoHref='mailto:info@ewpro.kr?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+    }
+
+    return {
+      isStd, isCus,
+      selectStd:()=>this.setState({tab:'std'}), selectCus:()=>this.setState({tab:'cus'}),
+      tabStdStyle:isStd?tabOn:tabOff, tabCusStyle:isCus?tabOn:tabOff,
+      sizes, prints, trays, mats,
+      stdQty:s.stdQty, stdQtyLabel:s.stdQty.toLocaleString('ko-KR'), stdDiscLabel:this.discount(s.stdQty),
+      onStdQty:(e)=>this.setState({stdQty:parseInt(e.target.value,10)}),
+      cusQty:s.cusQty, cusQtyLabel:s.cusQty.toLocaleString('ko-KR'), cusDiscLabel:this.discount(s.cusQty),
+      onCusQty:(e)=>this.setState({cusQty:parseInt(e.target.value,10)}),
+      cusW:s.W, cusD:s.D, cusH:s.H,
+      onW:(e)=>this.setState({W:this.clamp(parseInt(e.target.value,10),100,400)}),
+      onD:(e)=>this.setState({D:this.clamp(parseInt(e.target.value,10),100,400)}),
+      onH:(e)=>this.setState({H:this.clamp(parseInt(e.target.value,10),20,80)}),
+      baseLabel, discLabel, unitLabel, totalLabel, printLabel, moldLabel,
+      sumLine1Label, sumLine1, sumTray, sumQty, ctaLabel, noteLabel, mailtoHref,
+    };
+  }
+}
+</script>
+</body>
+</html>
