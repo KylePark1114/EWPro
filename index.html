@@ -6,279 +6,269 @@
 <script src="./support.js"></script>
 </head>
 <body>
-<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#2f5d4a"/><text x="50" y="46" font-family="Georgia,serif" font-size="17" fill="#eef0e6" text-anchor="middle" font-weight="600">EW</text><text x="50" y="66" font-family="monospace" font-size="9" fill="#a7c1b1" text-anchor="middle" letter-spacing="1">PRO</text></svg></template>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#111"/><text x="50" y="46" font-family="Arial" font-size="17" fill="#f5c518" text-anchor="middle" font-weight="800">EW</text><text x="50" y="66" font-family="monospace" font-size="9" fill="#fff" text-anchor="middle" letter-spacing="1">PRO</text></svg></template>
 <x-dc>
 <helmet>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
-  body { margin: 0; background:#efece5; }
-  ::selection { background: #2f5d4a; color: #eef0e6; }
+  body { margin: 0; background:#ecebe7; }
+  ::selection { background: #f5c518; color: #111; }
   .ew-nav a { text-decoration:none; color:inherit; }
-  .lift { transition: transform .25s ease, box-shadow .25s ease; }
-  .lift:hover { transform: translateY(-4px); box-shadow: 0 22px 50px -30px rgba(20,35,27,0.35); }
-  .ubtn { transition: transform .2s ease, background .2s ease, opacity .2s ease; }
+  .disp { font-family:'Archivo Expanded','Archivo',sans-serif; }
+  .plus { transition: transform .3s ease; }
+  .card:hover .plus { transform: rotate(90deg); }
+  .lift { transition: transform .25s ease; }
+  .lift:hover { transform: translateY(-4px); }
+  .ubtn { transition: transform .2s ease, background .2s ease; }
   .ubtn:hover { transform: translateY(-2px); }
-  @media (max-width:960px){
-    [data-wrap]{ padding-left:24px !important; padding-right:24px !important; }
+  @media (max-width:1000px){
+    [data-wrap]{ padding-left:20px !important; padding-right:20px !important; }
     [data-hero]{ grid-template-columns:1fr !important; }
-    [data-2col]{ grid-template-columns:1fr !important; }
-    [data-3col]{ grid-template-columns:1fr !important; }
-    [data-bento]{ grid-template-columns:1fr !important; }
-    [data-foot]{ grid-template-columns:1fr 1fr !important; }
-    [data-h1]{ font-size:52px !important; }
+    [data-hero-img]{ min-height:360px !important; }
+    [data-stats]{ grid-template-columns:1fr 1fr !important; }
+    [data-cap]{ grid-template-columns:1fr !important; }
+    [data-cap5]{ grid-template-columns:1fr 1fr !important; }
+    [data-phones]{ grid-template-columns:1fr !important; }
+    [data-benefit]{ grid-template-columns:1fr !important; }
+    [data-foot]{ grid-template-columns:1fr !important; }
     [data-navlinks]{ display:none !important; }
-    [data-hrow]{ flex-direction:column !important; align-items:flex-start !important; gap:14px !important; }
-    [data-wordmark]{ font-size:20vw !important; }
+    [data-huge]{ font-size:15vw !important; }
+    [data-hero-h]{ font-size:13vw !important; }
   }
   @media (max-width:560px){
-    [data-4stat]{ grid-template-columns:1fr 1fr !important; }
-    [data-foot]{ grid-template-columns:1fr !important; }
-    [data-h1]{ font-size:40px !important; }
+    [data-stats]{ grid-template-columns:1fr !important; }
+    [data-cap5]{ grid-template-columns:1fr !important; }
+    [data-clients]{ grid-template-columns:1fr 1fr !important; }
   }
 </style>
 </helmet>
 
-<div style="font-family:'Pretendard',sans-serif; color:#14231b; background:#efece5; width:100%; overflow:hidden;">
-
-  <!-- announcement -->
-  <div style="background:#14231b; color:#c3d3c8; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.04em; text-align:center; padding:9px 20px;">생분해 가능 4-IN-1 친환경 회 포장 · 실시간 견적 오픈</div>
+<div style="font-family:'Archivo',sans-serif; color:#111; background:#ecebe7; width:100%; overflow:hidden;">
 
   <!-- nav -->
-  <div class="ew-nav" style="position:sticky; top:0; z-index:50; background:rgba(239,236,229,0.82); backdrop-filter:blur(14px); border-bottom:1px solid rgba(20,35,27,0.08);">
-    <div data-wrap style="max-width:1240px; margin:0 auto; padding:18px 40px; display:flex; align-items:center; justify-content:space-between;">
-      <div style="display:flex; align-items:center; gap:10px; font-family:'Newsreader',serif; font-weight:500; font-size:24px; letter-spacing:0.01em;">
-        <span style="width:9px; height:9px; border-radius:2px; background:#2f5d4a; display:inline-block; transform:rotate(45deg);"></span>EW PRO
-      </div>
-      <div data-navlinks style="display:flex; gap:36px; font-size:15px; color:#3a4740;">
+  <div class="ew-nav" style="position:sticky; top:0; z-index:60; background:rgba(236,235,231,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(0,0,0,0.08);">
+    <div data-wrap style="max-width:1360px; margin:0 auto; padding:18px 32px; display:flex; align-items:center; justify-content:space-between;">
+      <a href="index.html" style="display:block; line-height:0;"><img src="img/ew-primary.png" alt="EW PRO" style="height:60px; display:block;"></a>
+      <div data-navlinks style="display:flex; gap:34px; font-size:15px; font-weight:500; color:#333;">
         <a href="lineup.html">Lineup</a><a href="quote.html">Quote</a><a href="about.html">About</a><a href="contact.html">Contact</a>
       </div>
-      <a href="quote.html" class="ubtn" style="background:#14231b; color:#efece5; padding:12px 22px; border-radius:999px; font-size:14px; font-weight:600; text-decoration:none;">Get a Quote →</a>
+      <a href="quote.html" class="ubtn" style="display:flex; align-items:center; gap:8px; background:#111; color:#fff; padding:11px 20px; border-radius:999px; font-size:14px; font-weight:600; text-decoration:none;"><span style="width:8px;height:8px;border-radius:999px;background:#f5c518;"></span>견적 문의하기</a>
     </div>
   </div>
 
   <!-- hero -->
-  <div data-wrap style="max-width:1240px; margin:0 auto; padding:34px 40px 0;">
-    <div style="background:#f7f5f0; border:1px solid rgba(20,35,27,0.07); border-radius:30px; padding:16px; box-shadow:0 40px 90px -60px rgba(20,35,27,0.4);">
-      <div data-hero style="display:grid; grid-template-columns:1.02fr 0.98fr; gap:16px; align-items:stretch;">
-        <!-- text -->
-        <div style="padding:44px 40px 40px;">
-          <span style="display:inline-flex; align-items:center; gap:8px; padding:7px 14px; border-radius:999px; border:1px solid rgba(20,35,27,0.14); font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.04em; color:#2f5d4a;"><span style="width:6px;height:6px;border-radius:999px;background:#2f5d4a;"></span>생분해 가능 · 4-IN-1</span>
-          <h1 data-h1 style="font-family:'Newsreader',serif; font-weight:500; font-size:72px; line-height:1.0; margin:26px 0 0; letter-spacing:-0.015em; color:#14231b;">신선함은 지키고,<br><span style="color:#a8b0a6;">자연으로 되돌린다</span></h1>
-          <p style="font-size:17px; line-height:1.65; color:#55605a; max-width:440px; margin:26px 0 0;">회 본연의 신선도를 지키는 4-in-1 포장 시스템. 생분해성 친환경 소재로 만들어져, 쓰임을 다하면 다시 자연으로 돌아갑니다.</p>
-          <div style="display:flex; gap:12px; margin-top:32px;">
-            <a href="quote.html" class="ubtn" style="background:#2f5d4a; color:#f2f0e9; padding:16px 28px; border-radius:999px; font-size:15px; font-weight:600; text-decoration:none;">실시간 견적 받기 →</a>
-            <a href="lineup.html" class="ubtn" style="background:#fff; border:1px solid rgba(20,35,27,0.14); padding:16px 28px; border-radius:999px; font-size:15px; font-weight:600; text-decoration:none; color:#14231b;">제품 라인업</a>
-          </div>
-          <div data-4stat style="display:grid; grid-template-columns:repeat(3,auto); gap:34px; margin-top:44px; align-items:end;">
-            <div><div style="font-family:'Newsreader',serif; font-weight:500; font-size:34px; line-height:1.1; color:#14231b;">4셀</div><div style="font-size:13px; color:#7a847c; margin-top:2px;">독립 보냉 구조</div></div>
-            <div><div style="font-family:'Newsreader',serif; font-weight:500; font-size:34px; line-height:1.1; color:#14231b;">D+3</div><div style="font-size:13px; color:#7a847c; margin-top:2px;">평균 납기</div></div>
-            <div><div style="font-family:'Newsreader',serif; font-weight:500; font-size:34px; line-height:1.1; color:#14231b;">100%</div><div style="font-size:13px; color:#7a847c; margin-top:2px;">생분해 소재</div></div>
-          </div>
+  <div data-wrap style="max-width:1360px; margin:0 auto; padding:7px 32px;">
+    <div data-hero style="display:grid; grid-template-columns:1.05fr 1.35fr; gap:14px; align-items:stretch;">
+      <!-- left panel -->
+      <div style="background:#f5f4f0; border-radius:20px; padding:34px 34px 28px; display:flex; flex-direction:column;">
+        <p style="font-size:14px; line-height:1.6; color:#444; margin:0; max-width:340px;">회 포장 제작 / 표준 라인업 · 커스텀 OEM / 실시간 견적 · 대량 발주 / 생분해 가능 4-in-1 친환경 회 포장 솔루션 EW PRO 입니다.</p>
+        <div style="flex:1; min-height:26px;"></div>
+        <h1 data-hero-h class="disp" style="font-weight:800; font-size:66px; line-height:0.98; letter-spacing:-0.01em; margin:0;">WE PACK<br>YOUR<br>FRESHNESS</h1>
+        <a href="quote.html" class="ubtn" style="align-self:flex-start; background:#f5c518; color:#111; padding:13px 24px; border-radius:999px; font-size:14px; font-weight:700; text-decoration:none; margin-top:26px;">실시간 견적 알아보기</a>
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:34px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#888;">© 2026–2027</span>
+          <span style="font-size:13px; color:#555; text-align:right; line-height:1.5;">회 포장을 다시 짓는<br>친환경 패키징 EW PRO</span>
         </div>
-        <!-- image -->
-        <div style="position:relative; border-radius:22px; overflow:hidden; background:#e4e7dc; min-height:440px;">
-          <img src="img/main1.jpg" alt="EW PRO 4-in-1 회 포장" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
-          <div style="position:absolute; left:18px; bottom:18px; right:18px; background:rgba(20,35,27,0.82); backdrop-filter:blur(8px); color:#eef0e6; border-radius:16px; padding:18px 20px; display:flex; align-items:center; justify-content:space-between; gap:16px;">
-            <div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#8ba888; letter-spacing:0.06em;">SASHIMI TRAY · 230mm</div>
-              <div style="font-family:'Newsreader',serif; font-size:20px; margin-top:4px;">4셀 독립 보냉 구조</div>
-            </div>
-            <a href="lineup.html" class="ubtn" style="flex-shrink:0; width:46px; height:46px; border-radius:999px; background:#eef0e6; color:#14231b; display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none;">↗</a>
-          </div>
-        </div>
+      </div>
+      <!-- right image -->
+      <div data-hero-img style="position:relative; border-radius:20px; overflow:hidden; background:#ddd; min-height:520px;">
+        <img src="img/main1.jpg" alt="EW PRO 4-in-1 회 포장" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+        <a href="lineup.html" class="ubtn" style="position:absolute; top:20px; right:20px; width:48px; height:48px; border-radius:999px; background:#fff; color:#111; display:flex; align-items:center; justify-content:center; font-size:20px; text-decoration:none;">↗</a>
       </div>
     </div>
   </div>
 
-  <!-- channel strip -->
-  <div data-wrap style="max-width:1240px; margin:0 auto; padding:40px 40px 10px;">
-    <p style="text-align:center; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#8a938b; margin:0 0 22px;">수산시장 · 배달 브랜드 · 프랜차이즈가 신뢰하는 포장</p>
-    <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px;">
-      <span style="font-family:'Newsreader',serif; font-size:19px; color:#6b756d; padding:6px 4px;">소래포구</span>
-      <span style="color:#c3c0b8;">·</span>
-      <span style="font-family:'Newsreader',serif; font-size:19px; color:#6b756d; padding:6px 4px;">연안부두</span>
-      <span style="color:#c3c0b8;">·</span>
-      <span style="font-family:'Newsreader',serif; font-size:19px; color:#6b756d; padding:6px 4px;">노량진</span>
-      <span style="color:#c3c0b8;">·</span>
-      <span style="font-family:'Newsreader',serif; font-size:19px; color:#6b756d; padding:6px 4px;">배민·요기요 입점</span>
-      <span style="color:#c3c0b8;">·</span>
-      <span style="font-family:'Newsreader',serif; font-size:19px; color:#6b756d; padding:6px 4px;">프랜차이즈 본사</span>
+  <!-- stats -->
+  <div data-wrap style="max-width:1360px; margin:0 auto; padding:7px 32px;">
+    <div data-stats style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px;">
+      <div style="background:#f5f4f0; border-radius:20px; padding:28px; display:flex; flex-direction:column; justify-content:space-between; min-height:200px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#888;">Business first started</span>
+        <div><div style="font-size:14px; color:#555; margin-bottom:8px;">서비스를 시작한 해</div><div class="disp" style="font-weight:800; font-size:48px;">2026</div></div>
+      </div>
+      <div style="background:#f5f4f0; border-radius:20px; padding:28px; display:flex; flex-direction:column; justify-content:space-between; min-height:200px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#888;">Trusted partners</span>
+        <div><div style="font-size:14px; color:#555; margin-bottom:8px;">함께하는 거래처</div><div class="disp" style="font-weight:800; font-size:48px;">50+</div></div>
+      </div>
+      <div style="background:#f5f4f0; border-radius:20px; padding:28px; display:flex; flex-direction:column; justify-content:space-between; min-height:200px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#888;">Average lead time</span>
+        <div><div style="font-size:14px; color:#555; margin-bottom:8px;">표준 라인 평균 납기</div><div class="disp" style="font-weight:800; font-size:48px;">D+3</div></div>
+      </div>
+      <div style="background:#111; color:#fff; border-radius:20px; padding:28px; display:flex; flex-direction:column; justify-content:space-between; min-height:200px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#f5c518;">+ Who we are</span>
+        <p style="font-size:13px; line-height:1.6; color:#cfcfcf; margin:0;">EW PRO는 회 본연의 신선도를 지키는 4-in-1 친환경 포장을 만듭니다. 소재는 자연으로 돌아가고, 견적은 화면에서 즉시 확인됩니다.</p>
+      </div>
+    </div>
+    <a href="about.html" class="ubtn" style="display:flex; align-items:center; justify-content:flex-end; gap:14px; background:#f5c518; border-radius:20px; padding:20px 28px; margin-top:14px; text-decoration:none; color:#111;">
+      <span style="font-weight:700; font-size:16px;">EW PRO의 남다른 노하우</span>
+      <span style="width:36px; height:36px; border-radius:999px; background:#111; color:#f5c518; display:flex; align-items:center; justify-content:center; font-size:20px;">+</span>
+    </a>
+  </div>
+
+  <!-- huge wordmark band -->
+  <div style="background:#111; color:#fff; padding:70px 0 7px;">
+    <div data-wrap style="max-width:1360px; margin:0 auto; padding:0 32px;">
+      <h2 data-huge class="disp" style="font-weight:800; font-size:104px; line-height:0.98; letter-spacing:-0.01em; margin:0;">SUSTAINABLE<br><span style="padding-left:1.5em;">SASHIMI PACKAGING</span></h2>
     </div>
   </div>
 
-  <!-- benefits (bento) -->
-  <div data-wrap style="max-width:1240px; margin:0 auto; padding:70px 40px 0;">
-    <div style="display:flex; flex-direction:column; align-items:center; text-align:center; margin-bottom:44px;">
-      <span style="display:inline-flex; padding:7px 15px; border-radius:999px; border:1px solid rgba(20,35,27,0.14); font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#2f5d4a;">Benefits</span>
-      <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:44px; margin:18px 0 0; letter-spacing:-0.01em; color:#14231b;">4-in-1이 만드는 차이</h2>
-      <p style="font-size:16px; color:#55605a; max-width:460px; line-height:1.6; margin:14px 0 0;">회는 회대로, 소스는 소스대로 — 섞이지 않고 도착하는 순간까지 본연의 상태를 지킵니다.</p>
+  <!-- clients gallery -->
+  <div style="background:#111; color:#fff; padding:7px 0;">
+    <div data-wrap style="max-width:1360px; margin:0 auto; padding:0 32px 40px;">
+      <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#f5c518; margin:0 0 14px;">Trusted by</p>
+      <h3 style="font-size:26px; font-weight:600; line-height:1.4; margin:0; color:#eee;">우리와 함께하는 거래처입니다.<br>회·수산 사업자와 EW PRO가 함께합니다.</h3>
     </div>
-    <div data-bento style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
-      <div class="lift" style="background:#fff; border:1px solid rgba(20,35,27,0.07); border-radius:24px; padding:30px;">
-        <div style="width:44px; height:44px; border-radius:12px; background:#eef1e9; color:#2f5d4a; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-weight:600;">01</div>
-        <h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:24px; margin:20px 0 10px;">셀별 독립 보냉</h3>
-        <p style="font-size:14px; color:#606b63; line-height:1.65; margin:0;">4개 셀이 온도·수분·향을 각각 관리해 회의 신선도를 -2°C로 유지합니다.</p>
-      </div>
-      <div class="lift" style="background:#14231b; color:#eef0e6; border-radius:24px; padding:30px;">
-        <div style="width:44px; height:44px; border-radius:12px; background:rgba(139,168,136,0.2); color:#8ba888; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-weight:600;">02</div>
-        <h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:24px; margin:20px 0 10px;">누수 0 실링</h3>
-        <p style="font-size:14px; color:#c3d3c8; line-height:1.65; margin:0;">소스 셀은 독립 실링 구조로, 이동 중에도 새거나 섞이지 않습니다.</p>
-        <div style="font-family:'Newsreader',serif; font-size:40px; margin-top:26px; color:#8ba888;">0<span style="font-size:16px; color:#a7c1b1;"> 누수 클레임</span></div>
-      </div>
-      <div class="lift" style="background:#fff; border:1px solid rgba(20,35,27,0.07); border-radius:24px; padding:30px;">
-        <div style="width:44px; height:44px; border-radius:12px; background:#eef1e9; color:#2f5d4a; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-weight:600;">03</div>
-        <h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:24px; margin:20px 0 10px;">자연으로 되돌림</h3>
-        <p style="font-size:14px; color:#606b63; line-height:1.65; margin:0;">생분해성 소재로 매립 시 자연 분해되거나, 회수 프로그램으로 재사용됩니다.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- lineup -->
-  <div data-wrap style="max-width:1240px; margin:0 auto; padding:80px 40px 0;">
-    <div style="display:flex; flex-direction:column; align-items:center; text-align:center; margin-bottom:44px;">
-      <span style="display:inline-flex; padding:7px 15px; border-radius:999px; border:1px solid rgba(20,35,27,0.14); font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#2f5d4a;">Lineup</span>
-      <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:44px; margin:18px 0 0; letter-spacing:-0.01em; color:#14231b;">표준 라인업, 즉시 견적</h2>
-      <p style="font-size:16px; color:#55605a; max-width:460px; line-height:1.6; margin:14px 0 0;">1~2인분 배달부터 프랜차이즈 대량 발주까지. 모든 사양은 사이트에서 실시간 산출됩니다.</p>
-    </div>
-    <div data-3col style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
-      <div class="lift" style="background:#f7f5f0; border:1px solid rgba(20,35,27,0.07); border-radius:24px; padding:16px;">
-        <div style="aspect-ratio:4/3; border-radius:16px; overflow:hidden; background:#e4e7dc;"><img src="img/S.jpg" alt="Size S" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-        <div style="padding:18px 12px 10px;">
-          <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font-family:'Newsreader',serif; font-weight:500; font-size:26px;">Size S</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#8a938b;">180×120</span></div>
-          <p style="font-size:14px; color:#606b63; line-height:1.6; margin:10px 0 16px;">1~2인분 배달 특화. 배달앱 입점 브랜드 표준.</p>
-          <a href="quote.html" style="font-size:14px; font-weight:600; color:#2f5d4a; text-decoration:none;">견적 보기 →</a>
-        </div>
-      </div>
-      <div class="lift" style="background:#14231b; color:#eef0e6; border-radius:24px; padding:16px;">
-        <div style="aspect-ratio:4/3; border-radius:16px; overflow:hidden; background:#1e3228; position:relative;"><img src="img/M.jpg" alt="Size M" style="width:100%;height:100%;object-fit:cover;display:block;"><span style="position:absolute; top:12px; left:12px; font-family:'IBM Plex Mono',monospace; font-size:10px; background:#8ba888; color:#14231b; padding:4px 8px; border-radius:6px;">BEST</span></div>
-        <div style="padding:18px 12px 10px;">
-          <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font-family:'Newsreader',serif; font-weight:500; font-size:26px;">Size M</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#8ba888;">230×160</span></div>
-          <p style="font-size:14px; color:#c3d3c8; line-height:1.6; margin:10px 0 16px;">3~4인분 모둠. 오프라인 판매점 최다 채택.</p>
-          <a href="quote.html" style="font-size:14px; font-weight:600; color:#8ba888; text-decoration:none;">견적 보기 →</a>
-        </div>
-      </div>
-      <div class="lift" style="background:#f7f5f0; border:1px solid rgba(20,35,27,0.07); border-radius:24px; padding:16px;">
-        <div style="aspect-ratio:4/3; border-radius:16px; overflow:hidden; background:#e4e7dc;"><img src="img/L.jpg" alt="Size L" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-        <div style="padding:18px 12px 10px;">
-          <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font-family:'Newsreader',serif; font-weight:500; font-size:26px;">Size L</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#8a938b;">300×220</span></div>
-          <p style="font-size:14px; color:#606b63; line-height:1.6; margin:10px 0 16px;">대형 모둠·행사용. 프랜차이즈 대량 발주 대응.</p>
-          <a href="quote.html" style="font-size:14px; font-weight:600; color:#2f5d4a; text-decoration:none;">견적 보기 →</a>
-        </div>
+    <div data-wrap style="max-width:1360px; margin:0 auto; padding:0 32px;">
+      <div style="position:relative; aspect-ratio:16/9; border-radius:16px; overflow:hidden; background:#000;">
+        <iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ?autoplay=1&mute=1&loop=1&playlist=aqz-KE-bpKQ&controls=0&modestbranding=1&rel=0&showinfo=0&playsinline=1&disablekb=1&fs=0&iv_load_policy=3" title="EW PRO 브랜드 영상" allow="autoplay; encrypted-media" style="position:absolute; inset:0; width:100%; height:100%; border:0; pointer-events:none;"></iframe>
       </div>
     </div>
   </div>
 
-  <!-- process (the cycle) -->
-  <div data-wrap style="max-width:1240px; margin:0 auto; padding:80px 40px 0;">
-    <div data-2col style="display:grid; grid-template-columns:0.8fr 1.2fr; gap:48px; align-items:start;">
-      <div style="position:sticky; top:100px;">
-        <span style="display:inline-flex; padding:7px 15px; border-radius:999px; border:1px solid rgba(20,35,27,0.14); font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#2f5d4a;">Process</span>
-        <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:42px; margin:18px 0 0; line-height:1.05; letter-spacing:-0.01em; color:#14231b;">포장의 끝이<br>오염의 시작이 되지<br>않도록</h2>
-        <p style="font-size:16px; color:#55605a; line-height:1.65; margin:18px 0 0; max-width:340px;">소재 자체가 자연의 일부가 되는 순환형 포장. 회 카테고리에 최적화된 친환경 설계입니다.</p>
+  <!-- capability -->
+  <div data-wrap style="max-width:1360px; margin:0 auto; padding:7px 32px;">
+    <div data-cap style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+      <div style="background:#f5f4f0; border-radius:20px; padding:34px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#888;">+ Capability</span>
+        <h2 style="font-size:34px; font-weight:700; line-height:1.2; margin:18px 0 0;">EW PRO의 확실한<br>포장 경쟁력</h2>
       </div>
-      <div style="display:flex; flex-direction:column; gap:14px;">
-        <div class="lift" style="background:#fff; border:1px solid rgba(20,35,27,0.07); border-radius:22px; padding:28px; display:flex; gap:22px; align-items:flex-start;">
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#8ba888; padding-top:4px;">01</span>
-          <div><h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:25px; margin:0 0 8px;">생분해성 소재로 짓다</h3><p style="font-size:15px; color:#606b63; line-height:1.65; margin:0;">생분해성 소재를 기반으로 성형. 석유계 플라스틱을 넣지 않습니다.</p></div>
-        </div>
-        <div class="lift" style="background:#fff; border:1px solid rgba(20,35,27,0.07); border-radius:22px; padding:28px; display:flex; gap:22px; align-items:flex-start;">
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#8ba888; padding-top:4px;">02</span>
-          <div><h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:25px; margin:0 0 8px;">신선하게 지키다</h3><p style="font-size:15px; color:#606b63; line-height:1.65; margin:0;">4개 셀이 온도·수분·향을 독립 관리해 도착하는 순간까지 회를 보존합니다.</p></div>
-        </div>
-        <div class="lift" style="background:#fff; border:1px solid rgba(20,35,27,0.07); border-radius:22px; padding:28px; display:flex; gap:22px; align-items:flex-start;">
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#8ba888; padding-top:4px;">03</span>
-          <div><h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:25px; margin:0 0 8px;">자연으로 돌다</h3><p style="font-size:15px; color:#606b63; line-height:1.65; margin:0;">매립 시 자연 분해되거나, 거래처 회수 프로그램으로 재사용됩니다.</p></div>
-        </div>
+      <div style="background:#f5c518; border-radius:20px; padding:34px; display:flex; flex-direction:column; justify-content:space-between;">
+        <p style="font-size:15px; line-height:1.6; color:#222; margin:0;">신선도·친환경·발주 편의 — 회 유통에 필요한 모든 조건을 하나의 포장 시스템으로 해결합니다.</p>
+        <a href="quote.html" class="ubtn" style="display:flex; align-items:center; justify-content:flex-end; gap:12px; text-decoration:none; color:#111; margin-top:24px;"><span style="font-weight:700;">실시간 견적 알아보기</span><span style="width:36px; height:36px; border-radius:999px; background:#111; color:#f5c518; display:flex; align-items:center; justify-content:center; font-size:18px;">+</span></a>
+      </div>
+    </div>
+    <div data-cap5 style="display:grid; grid-template-columns:repeat(5,1fr); gap:14px;">
+      <div class="card" style="background:#f5f4f0; border-radius:20px; padding:26px; min-height:230px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div class="disp" style="font-size:30px; font-weight:700; color:#111;">❄</div>
+        <div><h4 style="font-size:19px; font-weight:700; margin:0 0 10px; line-height:1.3;">셀별 독립<br>보냉 설계</h4><span class="plus" style="display:inline-flex; width:30px; height:30px; border-radius:999px; background:#f5c518; color:#111; align-items:center; justify-content:center; font-size:16px;">+</span></div>
+      </div>
+      <div class="card" style="background:#f5f4f0; border-radius:20px; padding:26px; min-height:230px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div class="disp" style="font-size:30px; font-weight:700; color:#111;">◍</div>
+        <div><h4 style="font-size:19px; font-weight:700; margin:0 0 10px; line-height:1.3;">누수 0<br>실링 구조</h4><span class="plus" style="display:inline-flex; width:30px; height:30px; border-radius:999px; background:#f5c518; color:#111; align-items:center; justify-content:center; font-size:16px;">+</span></div>
+      </div>
+      <div class="card" style="background:#f5f4f0; border-radius:20px; padding:26px; min-height:230px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div class="disp" style="font-size:30px; font-weight:700; color:#111;">♲</div>
+        <div><h4 style="font-size:19px; font-weight:700; margin:0 0 10px; line-height:1.3;">생분해<br>친환경 소재</h4><span class="plus" style="display:inline-flex; width:30px; height:30px; border-radius:999px; background:#f5c518; color:#111; align-items:center; justify-content:center; font-size:16px;">+</span></div>
+      </div>
+      <div class="card" style="background:#f5f4f0; border-radius:20px; padding:26px; min-height:230px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div class="disp" style="font-size:30px; font-weight:700; color:#111;">✳</div>
+        <div><h4 style="font-size:19px; font-weight:700; margin:0 0 10px; line-height:1.3;">실시간<br>견적 산출</h4><span class="plus" style="display:inline-flex; width:30px; height:30px; border-radius:999px; background:#f5c518; color:#111; align-items:center; justify-content:center; font-size:16px;">+</span></div>
+      </div>
+      <div class="card" style="background:#f5f4f0; border-radius:20px; padding:26px; min-height:230px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div class="disp" style="font-size:30px; font-weight:700; color:#111;">❋</div>
+        <div><h4 style="font-size:19px; font-weight:700; margin:0 0 10px; line-height:1.3;">커스텀<br>OEM 제작</h4><span class="plus" style="display:inline-flex; width:30px; height:30px; border-radius:999px; background:#f5c518; color:#111; align-items:center; justify-content:center; font-size:16px;">+</span></div>
       </div>
     </div>
   </div>
 
-  <!-- brand film -->
-  <sc-if value="{{ showVideo }}" hint-placeholder-val="{{ true }}">
-  <div data-wrap style="max-width:1240px; margin:0 auto; padding:80px 40px 0;">
-    <div style="display:flex; flex-direction:column; align-items:center; text-align:center; margin-bottom:34px;">
-      <span style="display:inline-flex; padding:7px 15px; border-radius:999px; border:1px solid rgba(20,35,27,0.14); font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#2f5d4a;">Brand Film</span>
-      <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:44px; margin:18px 0 0; letter-spacing:-0.01em; color:#14231b;">움직임으로 보는 EW PRO</h2>
-    </div>
-    <div id="ew-video" style="position:relative; aspect-ratio:16/9; border-radius:26px; overflow:hidden; border:1px solid rgba(20,35,27,0.1); background:#14231b; display:flex; align-items:center; justify-content:center;">
-      <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
-        <iframe src="{{ videoEmbed }}" style="position:absolute; inset:0; width:100%; height:100%; border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
-      </sc-if>
-      <sc-if value="{{ noVideo }}" hint-placeholder-val="{{ true }}">
-        <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,#1a2c22 0 16px,#1e3228 16px 32px); opacity:0.6;"></div>
-        <div style="position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:18px; color:#c3d3c8;">
-          <span style="width:78px; height:78px; border-radius:999px; background:rgba(238,240,230,0.12); border:1px solid rgba(238,240,230,0.3); display:flex; align-items:center; justify-content:center;">
-            <span style="width:0; height:0; border-left:20px solid #eef0e6; border-top:13px solid transparent; border-bottom:13px solid transparent; margin-left:5px;"></span>
-          </span>
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.06em;">브랜드 필름 · 영상 자리 (16:9)</span>
-        </div>
-      </sc-if>
-    </div>
-  </div>
-  </sc-if>
-
-  <!-- testimonial -->
-  <sc-if value="{{ showTestimonial }}" hint-placeholder-val="{{ true }}">
-  <div data-wrap style="max-width:1240px; margin:0 auto; padding:80px 40px 0;">
-    <div style="display:flex; flex-direction:column; align-items:center; text-align:center; margin-bottom:44px;">
-      <span style="display:inline-flex; padding:7px 15px; border-radius:999px; border:1px solid rgba(20,35,27,0.14); font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#2f5d4a;">Testimonials</span>
-      <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:44px; margin:18px 0 0; letter-spacing:-0.01em; color:#14231b;">현장의 이야기</h2>
-    </div>
-    <div data-2col style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:16px; align-items:stretch;">
-      <div style="background:#14231b; color:#eef0e6; border-radius:26px; padding:38px; display:flex; flex-direction:column; justify-content:space-between;">
-        <div>
-          <div style="color:#e5a94f; font-size:15px; letter-spacing:2px;">★★★★★</div>
-          <blockquote style="margin:22px 0 0; font-family:'Newsreader',serif; font-weight:400; font-size:26px; line-height:1.4;">“소스 누수 클레임이 사라졌고, 친환경 포장이라 단골 반응도 좋아졌습니다. 견적을 화면에서 바로 확인할 수 있어 발주가 빨라졌어요.”</blockquote>
-        </div>
-        <div style="display:flex; align-items:center; gap:12px; margin-top:32px;">
-          <span style="width:44px; height:44px; border-radius:999px; background:#2f5d4a; color:#eef0e6; display:flex; align-items:center; justify-content:center; font-family:'Newsreader',serif; font-size:18px;">A</span>
-          <div><div style="font-weight:600; font-size:15px;">노량진 수산 A사</div><div style="font-size:13px; color:#a7c1b1;">오프라인 판매점 · 구매담당</div></div>
-        </div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:16px;">
-        <div style="background:#fff; border:1px solid rgba(20,35,27,0.07); border-radius:26px; padding:30px; flex:1;">
-          <p style="font-size:16px; color:#3a4740; line-height:1.6; margin:0;">배달 중 눌림·누수가 없어 재주문 문의가 늘었습니다. 포장이 브랜드 인상을 바꿔줬어요.</p>
-          <div style="display:flex; align-items:center; gap:12px; margin-top:24px;"><span style="width:40px; height:40px; border-radius:999px; background:#eef1e9; color:#2f5d4a; display:flex; align-items:center; justify-content:center; font-family:'Newsreader',serif; font-size:17px;">B</span><div><div style="font-weight:600; font-size:14px;">배민 입점 B브랜드</div><div style="font-size:12px; color:#7a847c;">대표</div></div></div>
-        </div>
-        <div style="background:#eef1e9; border-radius:26px; padding:30px;">
-          <div style="font-family:'Newsreader',serif; font-size:34px; color:#2f5d4a;">24<span style="font-size:16px; color:#5c7061;">개사+</span></div>
-          <div style="font-size:14px; color:#5c655d; margin-top:4px;">수산·외식 사업자가 EW PRO를 사용합니다</div>
-        </div>
+  <!-- product showcase (yellow band) -->
+  <div style="background:#f5c518; padding:7px 0;">
+    <div data-wrap style="max-width:1360px; margin:0 auto; padding:0 32px;">
+      <div data-phones style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+        <div style="aspect-ratio:3/4; border-radius:20px; overflow:hidden; background:rgba(0,0,0,0.06); position:relative;"><img src="img/big.jpg" alt="L size" style="width:100%;height:100%;object-fit:cover;display:block;"><div class="disp" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:30px; letter-spacing:0.04em; text-shadow:0 2px 20px rgba(0,0,0,0.4);">L size</div></div>
+        <div style="aspect-ratio:3/4; border-radius:20px; overflow:hidden; background:rgba(0,0,0,0.06); position:relative;"><img src="img/medium.jpg" alt="M size" style="width:100%;height:100%;object-fit:cover;display:block;"><div class="disp" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:30px; letter-spacing:0.04em; text-shadow:0 2px 20px rgba(0,0,0,0.4);">M size</div></div>
+        <div style="aspect-ratio:3/4; border-radius:20px; overflow:hidden; background:rgba(0,0,0,0.06); position:relative;"><img src="img/small.jpg" alt="S size" style="width:100%;height:100%;object-fit:cover;display:block;"><div class="disp" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:30px; letter-spacing:0.04em; text-shadow:0 2px 20px rgba(0,0,0,0.4);">S size</div></div>
       </div>
     </div>
   </div>
-  </sc-if>
 
-  <!-- CTA -->
-  <div data-wrap style="max-width:1240px; margin:0 auto; padding:90px 40px 40px;">
-    <div style="background:#2f5d4a; color:#eef0e6; border-radius:30px; padding:70px 56px; text-align:center;">
-      <span style="display:inline-flex; padding:7px 15px; border-radius:999px; border:1px solid rgba(238,240,230,0.28); font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#a7c1b1;">Get Started</span>
-      <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:52px; margin:20px 0 0; line-height:1.05; letter-spacing:-0.015em;">사양만 입력하면, 견적은 즉시</h2>
-      <p style="font-size:16px; color:#c3d3c8; max-width:480px; margin:16px auto 0; line-height:1.6;">수량·사양·납기를 입력하면 화면에서 바로 단가가 산출됩니다. 커스텀 OEM은 담당자가 3영업일 내 회신드립니다.</p>
-      <div style="display:flex; gap:12px; justify-content:center; margin-top:34px; flex-wrap:wrap;">
-        <a href="quote.html" class="ubtn" style="background:#eef0e6; color:#14231b; padding:17px 32px; border-radius:999px; font-size:16px; font-weight:700; text-decoration:none;">실시간 견적 산출 →</a>
-        <a href="contact.html" class="ubtn" style="background:transparent; border:1px solid rgba(238,240,230,0.35); color:#eef0e6; padding:17px 32px; border-radius:999px; font-size:16px; font-weight:600; text-decoration:none;">상담 문의</a>
+  <!-- benefit -->
+  <div data-wrap style="max-width:1360px; margin:0 auto; padding:7px 32px;">
+    <div data-benefit style="display:grid; grid-template-columns:0.8fr 1fr 1fr 1fr; gap:14px;">
+      <div style="background:#f5f4f0; border-radius:20px; padding:30px; display:flex; flex-direction:column; justify-content:space-between; min-height:260px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#888;">+ Benefit</span>
+        <div><div class="disp" style="font-weight:800; font-size:52px;">4.8<span style="font-size:20px;">*</span></div><p style="font-size:13px; color:#555; margin:8px 0 0; line-height:1.5;">거래처 만족도<br>With EW PRO.</p></div>
       </div>
+      <div style="background:#f5f4f0; border-radius:20px; padding:30px; min-height:260px; display:flex; flex-direction:column;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#888;">Easy order</span>
+        <h4 style="font-size:19px; font-weight:700; margin:auto 0 10px;">쉬운 발주를 위한<br>실시간 견적</h4>
+        <p style="font-size:13.5px; color:#555; line-height:1.65; margin:0;">사양·수량·납기를 입력하면 바로 단가가 산출됩니다. 표준부터 커스텀까지 즉시 확인 가능합니다.</p>
+      </div>
+      <div style="background:#f5f4f0; border-radius:20px; padding:30px; min-height:260px; display:flex; flex-direction:column;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#888;">Manager</span>
+        <h4 style="font-size:19px; font-weight:700; margin:auto 0 10px;">전담 상담<br>담당자 배정</h4>
+        <p style="font-size:13.5px; color:#555; line-height:1.65; margin:0;">커스텀 사양·대량 OEM 발주는 전담 담당자가 도면 검토부터 납품까지 함께합니다.</p>
+      </div>
+      <div style="background:#f5f4f0; border-radius:20px; padding:30px; min-height:260px; display:flex; flex-direction:column;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#888;">Support</span>
+        <h4 style="font-size:19px; font-weight:700; margin:auto 0 10px;">대량 발주<br>OEM 대응</h4>
+        <p style="font-size:13.5px; color:#555; line-height:1.65; margin:0;">프랜차이즈·도매 물량도 안정적으로. 규격·로고·소재까지 브랜드에 맞춰 제작합니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- big statement -->
+  <div style="background:#111; color:#fff; padding:70px 0;">
+    <div data-wrap style="max-width:1360px; margin:0 auto; padding:0 32px;">
+      <h2 data-huge class="disp" style="font-weight:800; font-size:100px; line-height:0.98; letter-spacing:-0.01em; margin:0;">keep it fresh,</h2>
+      <h2 data-huge class="disp" style="font-weight:800; font-size:100px; line-height:0.98; letter-spacing:-0.01em; margin:0; color:#f5c518;">give it back</h2>
+    </div>
+  </div>
+
+  <!-- partners -->
+  <div data-wrap style="max-width:1360px; margin:0 auto; padding:7px 32px;">
+    <div data-cap style="display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch;">
+      <div style="background:#fff; border:1px solid rgba(0,0,0,0.07); border-radius:20px; padding:44px;">
+        <span style="display:inline-flex; align-items:center; gap:8px; padding:7px 15px; border:1px solid rgba(0,0,0,0.14); border-radius:999px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#111;"><span style="width:6px;height:6px;border-radius:999px;background:#f5c518;"></span>Channels &amp; Partners</span>
+        <h2 style="font-size:32px; font-weight:700; line-height:1.2; margin:22px 0 20px;">우리가 함께하는 채널</h2>
+        <p style="font-size:14px; color:#555; line-height:1.75; margin:0 0 16px; max-width:430px;">EW PRO는 표준 라인업 외에도 다양한 채널의 회·수산 사업자와 함께하며, 각 채널 특성에 맞는 포장을 공급합니다.</p>
+        <p style="font-size:14px; color:#555; line-height:1.75; margin:0 0 36px; max-width:430px;">배달앱 입점 브랜드부터 오프라인 수산 판매점, 프랜차이즈 본사까지 —<br>안정적인 납기와 커스텀 대응으로 함께 성장합니다.</p>
+        <div style="display:grid; grid-template-columns:repeat(3,auto); gap:28px 40px; justify-content:start; align-items:center;">
+          <span class="disp" style="font-weight:800; font-size:26px; color:#111;">배민</span>
+          <span class="disp" style="font-weight:800; font-size:26px; color:#111;">요기요</span>
+          <span class="disp" style="font-weight:800; font-size:26px; color:#111;">쿠팡이츠</span>
+          <span class="disp" style="font-weight:800; font-size:26px; color:#111;">소래포구</span>
+          <span class="disp" style="font-weight:800; font-size:26px; color:#111;">노량진</span>
+          <span class="disp" style="font-weight:800; font-size:26px; color:#111;">연안부두</span>
+        </div>
+      </div>
+      <div style="position:relative; border-radius:20px; overflow:hidden; min-height:520px; background:radial-gradient(circle at 50% 50%, transparent 47%, #f2efe6 49%) 0 0 / 60px 60px, linear-gradient(180deg,#ef8f1c 0%,#f2992a 16%,#f4a940 34%,#f6c074 56%,#f8d79f 76%,#f3e7d0 100%);">
+        <span style="position:absolute; top:15%; left:78%; width:32px; height:32px; border-radius:999px; background:#ef86b8;"></span>
+        <span style="position:absolute; top:58%; left:63%; width:30px; height:30px; border-radius:999px; background:#f5972a;"></span>
+        <span style="position:absolute; top:88%; left:44%; width:30px; height:30px; border-radius:999px; background:#f5972a;"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- final CTA -->
+  <div style="background:#111; color:#fff; padding:70px 0 7px;">
+    <div data-wrap style="max-width:1360px; margin:0 auto; padding:0 32px; text-align:center;">
+      <h2 style="font-size:38px; font-weight:700; line-height:1.3; margin:0;">생분해 친환경 회 포장,<br>지금 상담받아 보세요.</h2>
+      <a href="contact.html" class="ubtn" style="display:inline-flex; align-items:center; gap:14px; background:#f5c518; color:#111; padding:16px 32px; border-radius:999px; font-size:16px; font-weight:700; text-decoration:none; margin-top:32px;">실시간 견적 알아보기 <span style="font-size:18px;">↗</span></a>
     </div>
   </div>
 
   <!-- footer -->
-  <div id="contact" style="background:#14231b; color:#c3d3c8; border-radius:30px 30px 0 0; overflow:hidden;">
-    <div data-wrap data-foot style="max-width:1240px; margin:0 auto; padding:64px 40px 40px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px;">
-      <div>
-        <div style="font-family:'Newsreader',serif; font-weight:500; font-size:28px; color:#eef0e6;">EW PRO</div>
-        <p style="font-size:14px; line-height:1.6; margin:16px 0 0; max-width:280px;">생분해 가능한 4-in-1 친환경 회 포장 솔루션. 신선함은 지키고, 자연으로 되돌립니다.</p>
+  <div style="background:#111; color:#fff; border-radius:30px 30px 0 0; overflow:hidden;">
+    <div data-wrap data-foot style="max-width:1360px; margin:0 auto; padding:56px 32px; display:grid; grid-template-columns:1.35fr 1fr; gap:40px; align-items:stretch;">
+      <div style="background:#fff; color:#111; border-radius:20px; padding:40px;">
+        <img src="img/ew-primary.png" alt="EW PRO" style="height:84px; display:block;">
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;">
+          <span style="background:#f5c518; color:#111; font-weight:700; font-size:14px; border-radius:999px; padding:11px 20px; white-space:nowrap; display:inline-flex; align-items:center;">EW PRO</span>
+          <span style="background:#fff; color:#111; font-size:14px; border:1px solid rgba(0,0,0,0.14); border-radius:999px; padding:11px 20px; white-space:nowrap; display:inline-flex; align-items:center;">인천광역시 연수구 갯벌로 12, A동 5층 11호</span>
+          <span style="background:#fff; color:#111; font-size:14px; border:1px solid rgba(0,0,0,0.14); border-radius:999px; padding:11px 20px; white-space:nowrap; display:inline-flex; align-items:center;">050-4408-5096</span>
+          <a href="mailto:info@ewpro.kr" style="background:#fff; color:#111; font-size:14px; border:1px solid rgba(0,0,0,0.14); border-radius:999px; padding:11px 20px; white-space:nowrap; display:inline-flex; align-items:center; text-decoration:none;">info@ewpro.kr</a>
+          <a href="contact.html" style="background:#fff; color:#111; font-size:14px; border:1px solid rgba(0,0,0,0.14); border-radius:999px; padding:11px 20px; white-space:nowrap; display:inline-flex; align-items:center; text-decoration:none;">문의하기</a>
+        </div>
+        <div class="ew-nav" style="display:flex; gap:24px; margin-top:26px; font-size:14px; font-weight:500; color:#666;">
+          <a href="lineup.html">Lineup</a><a href="quote.html">Quote</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+        </div>
       </div>
-      <div class="ew-nav" style="display:flex; flex-direction:column; gap:12px; font-size:14px;"><span style="color:#7d8a80; font-family:'IBM Plex Mono',monospace; font-size:12px;">PRODUCT</span><a href="lineup.html">Lineup</a><a href="quote.html">Custom Quote</a><a href="about.html">Sustainability</a></div>
-      <div class="ew-nav" style="display:flex; flex-direction:column; gap:12px; font-size:14px;"><span style="color:#7d8a80; font-family:'IBM Plex Mono',monospace; font-size:12px;">COMPANY</span><a href="about.html">About</a><a href="contact.html">Contact</a></div>
-      <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;"><span style="color:#7d8a80; font-family:'IBM Plex Mono',monospace; font-size:12px;">CONTACT</span><a href="mailto:info@ewpro.kr" style="color:inherit;text-decoration:none;">info@ewpro.kr</a><a href="tel:05044085096" style="color:inherit;text-decoration:none;">050-4408-5096</a><span>인천광역시 연수구 갯벌로 12, A동 5층 11호</span></div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="background:#fff; color:#111; border-radius:20px; padding:26px 28px; flex:1; display:flex; flex-direction:column; justify-content:center;">
+          <p style="font-size:13px; color:#888; margin:0 0 8px; font-family:'IBM Plex Mono',monospace;">Subscribe our newsletter and updates</p>
+          <p style="font-size:21px; font-weight:700; margin:0;">EW PRO의 주요 소식을 받아보세요.</p>
+        </div>
+        <div style="background:#fff; border-radius:999px; padding:8px 8px 8px 22px; display:flex; align-items:center; gap:8px;">
+          <input type="email" placeholder="구독하실 이메일을 입력해주세요." style="flex:1; border:none; background:transparent; font-size:14px; font-family:'Archivo',sans-serif; outline:none; color:#111;">
+          <a href="contact.html" class="ubtn" style="width:46px; height:46px; border-radius:999px; background:#f5c518; color:#111; display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none; flex-shrink:0;">↗</a>
+        </div>
+      </div>
     </div>
-    <div data-wordmark style="font-family:'Newsreader',serif; font-weight:500; font-size:15vw; line-height:0.8; color:rgba(238,240,230,0.06); text-align:center; padding:0 20px; letter-spacing:0.02em; user-select:none;">EW PRO</div>
-    <div data-wrap style="max-width:1240px; margin:0 auto; padding:24px 40px; border-top:1px solid rgba(238,240,230,0.12); display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#7d8a80;">
+    <div data-wrap style="max-width:1360px; margin:0 auto; padding:20px 32px 40px; border-top:1px solid rgba(255,255,255,0.12); display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#888;">
       <span>© 2026 EW PRO. All rights reserved.</span><span>Privacy · Terms</span>
     </div>
   </div>
@@ -286,30 +276,6 @@
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:900},&quot;videoUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;브랜드 필름&quot;},&quot;showVideo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;섹션 표시&quot;},&quot;showTestimonial&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;섹션 표시&quot;}}">
-class Component extends DCLogic {
-  renderVals() {
-    return {
-      showVideo: this.props.showVideo ?? true,
-      showTestimonial: this.props.showTestimonial ?? true,
-      ...this.videoVals(),
-    };
-  }
-
-  // 유튜브/비메오/MP4 링크를 임베드 주소로 변환. 빈 값이면 플레이스홀더 유지.
-  videoVals() {
-    const raw = (this.props.videoUrl ?? '').trim();
-    if (!raw) return { hasVideo: false, noVideo: true, videoEmbed: '' };
-    let embed = raw;
-    let m;
-    if ((m = raw.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/))) {
-      embed = 'https://www.youtube.com/embed/' + m[1];
-    } else if ((m = raw.match(/vimeo\.com\/(?:video\/)?(\d+)/))) {
-      embed = 'https://player.vimeo.com/video/' + m[1];
-    }
-    return { hasVideo: true, noVideo: false, videoEmbed: embed };
-  }
-}
-</script>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1360,&quot;height&quot;:900}}"></script>
 </body>
 </html>
